@@ -3,6 +3,21 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.7</title>
+            <pubDate>Tue, 29 Sep 2026 11:48:45 -0400</pubDate>
+            <sparkle:version>19</sparkle:version>
+            <sparkle:shortVersionString>1.1.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.7 — A new welcome, a new icon</h3>
+<ul>
+<li>A brand-new full-screen welcome: a living gradient that follows your pointer, colors you can try across the whole screen, and shortcuts you can press to learn. See it any time from Help › Show Welcome.</li>
+<li>A new app icon.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.7/Pane-1.1.7.zip" length="3605450" type="application/octet-stream" sparkle:edSignature="7A4ejHpiiZXHlT1k9mbml9oqbahNiU+uTbPzeZV7YBWXJIi9y5uiG6HPZBuOVIxTho7DE4rZm4crQwc2+9PNCw=="/>
+        </item>
+        <item>
             <title>1.1.6</title>
             <pubDate>Tue, 29 Sep 2026 11:29:45 -0400</pubDate>
             <sparkle:version>18</sparkle:version>
@@ -31,22 +46,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.5/Pane-1.1.5.zip" length="3505330" type="application/octet-stream" sparkle:edSignature="tcKjKg/v5sKdfqMndjMaKJ5rMW4DSkl8pwN5wEePqR1dIl0IXy14e0H15FICsua83dhzo39n4LQ4gQ9hafrrAQ=="/>
-        </item>
-        <item>
-            <title>1.1.4</title>
-            <pubDate>Tue, 29 Sep 2026 11:03:27 -0400</pubDate>
-            <sparkle:version>16</sparkle:version>
-            <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.4 — Colors and tiles</h3>
-<ul>
-<li>The top bar takes on each site's color, with text that stays readable. Turn it off in Settings › Appearance.</li>
-<li>Pinned tabs are now big icon tiles, three across, like Dia.</li>
-<li>Dragging tabs is smoother: the list parts to make room where the tab will land. Drag a tab to the top to pin it.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.4/Pane-1.1.4.zip" length="3504768" type="application/octet-stream" sparkle:edSignature="cSzW3shdM2euzkdpxzA5zE/iB6x9Q8qyVbNJb1PK68qwhfdM2MJ8u3nVORlO7Vrrh0O/E3ybQazvqz10jN/uBQ=="/>
         </item>
     </channel>
 </rss>
