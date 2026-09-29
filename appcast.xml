@@ -3,6 +3,22 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.0.8</title>
+            <pubDate>Tue, 29 Sep 2026 00:56:24 -0400</pubDate>
+            <sparkle:version>9</sparkle:version>
+            <sparkle:shortVersionString>1.0.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.0.8 — Autofill</h3>
+<ul>
+<li>The address bar completes as you type, from your open tabs, bookmarks and the sites you visit most. Press Tab or → to take it.</li>
+<li>If the site is already open, Return switches to that tab (even in another space) instead of opening a duplicate.</li>
+<li>Backspace stops the completion, so you can search for exactly what you typed.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.8/Pane-1.0.8.zip" length="3260050" type="application/octet-stream" sparkle:edSignature="D8lpQLTusSw3lv4mJBbznizzNP+YFcZC/bzHuApAHQmYsOxcYD8OlyLkLzIeMe3QjjAMXaE+6BGzoT/15QjRAQ=="/>
+        </item>
+        <item>
             <title>1.0.7</title>
             <pubDate>Tue, 29 Sep 2026 00:50:50 -0400</pubDate>
             <sparkle:version>8</sparkle:version>
@@ -32,22 +48,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.6/Pane-1.0.6.zip" length="3204033" type="application/octet-stream" sparkle:edSignature="lgQ/nBLah/ZlxnA/14zeNoExuMBimJTji2weMKiIcnhdXy8Qg9kSzseAKN8liAqTn6SvDFChZ8svuVuXp8alAw=="/>
-        </item>
-        <item>
-            <title>1.0.5</title>
-            <pubDate>Tue, 29 Sep 2026 00:38:13 -0400</pubDate>
-            <sparkle:version>6</sparkle:version>
-            <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.0.5</h3>
-<ul>
-<li>Resize the sidebar by dragging the gap next to it. Drag all the way left to hide it; double-click to reset.</li>
-<li>With the sidebar hidden, the page now has a thin, Dia-like frame.</li>
-<li>Updates now show up the moment they're published.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.5/Pane-1.0.5.zip" length="3201654" type="application/octet-stream" sparkle:edSignature="+FrQOxxzxQfi35JrntOMl/O3yZ901+GyfQUZqlwHVp445wzRiS+hzux4ve0SwRSj/nJAcvAVCdmA+PHNWS57Dw=="/>
         </item>
     </channel>
 </rss>
