@@ -3,6 +3,22 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.0.10</title>
+            <pubDate>Tue, 29 Sep 2026 01:18:29 -0400</pubDate>
+            <sparkle:version>11</sparkle:version>
+            <sparkle:shortVersionString>1.0.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.0.10 — A calmer address bar</h3>
+<ul>
+<li>Clicking the address shows just the address. ⌘T shows a few recent tabs.</li>
+<li>While typing, only real matches appear — open tabs, a couple of bookmarks and history items, and search.</li>
+<li>Actions appear only when you type them ("zoom", "pdf", "tidy"…). Type &gt; to see them all.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.10/Pane-1.0.10.zip" length="3358360" type="application/octet-stream" sparkle:edSignature="W99w41wZn+8TrtctDUD2flXmmn8ujhtmINMxCAP5CWyePPN4ek10wAzSiz5BDs1/QAMgXpLd/Hb2VBbmNpN8Aw=="/>
+        </item>
+        <item>
             <title>1.0.9</title>
             <pubDate>Tue, 29 Sep 2026 01:13:22 -0400</pubDate>
             <sparkle:version>10</sparkle:version>
@@ -36,23 +52,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.8/Pane-1.0.8.zip" length="3260050" type="application/octet-stream" sparkle:edSignature="D8lpQLTusSw3lv4mJBbznizzNP+YFcZC/bzHuApAHQmYsOxcYD8OlyLkLzIeMe3QjjAMXaE+6BGzoT/15QjRAQ=="/>
-        </item>
-        <item>
-            <title>1.0.7</title>
-            <pubDate>Tue, 29 Sep 2026 00:50:50 -0400</pubDate>
-            <sparkle:version>8</sparkle:version>
-            <sparkle:shortVersionString>1.0.7</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.0.7 — Faster, and your colors</h3>
-<ul>
-<li>Custom space colors: click the icon next to a space's name and pick colors on the new color pad. Add up to three for a gradient, and set how strongly they show.</li>
-<li>Tabs you haven't looked at in 10 minutes now sleep, freeing memory and battery. They reload when you click them.</li>
-<li>The moving background uses less power and pauses when Pane is in the background.</li>
-<li>Pages appear a little sooner, and saving your tabs never slows down typing or scrolling.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.7/Pane-1.0.7.zip" length="3243153" type="application/octet-stream" sparkle:edSignature="+0yGA0ez/zoUVr5w2Fa4QJZMaAL2aSYcCBA2JJTJmGjm5/IIYVzjoE4lVuqTaodshq/7Syre57EGQ1P2brO/BA=="/>
         </item>
     </channel>
 </rss>
