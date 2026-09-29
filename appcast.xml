@@ -1,7 +1,23 @@
 <?xml version="1.0" standalone="yes"?>
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
     <channel>
-        <title>MyApp</title>
+        <title>Pane</title>
+        <item>
+            <title>1.0.3</title>
+            <pubDate>Tue, 29 Sep 2026 00:27:14 -0400</pubDate>
+            <sparkle:version>4</sparkle:version>
+            <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.0.3 — Hello, Pane</h3>
+<ul>
+<li>The browser has a name: Pane. You'll see it in the menu bar, Dock and app switcher.</li>
+<li>Your tabs, spaces, history, bookmarks and settings carry over as they are.</li>
+<li>Tip: rename the app in your Applications folder to “Pane” so Finder and Spotlight match.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.3/Pane-1.0.3.zip" length="2986951" type="application/octet-stream" sparkle:edSignature="18BtwvAjf44/Lmz23WdHIC/Ei1AJASOhKSagMNZUBBAw7O+QhlqrWXq3xC/Im9nnaG9no4UgLBRsMOG6fl8ICA=="/>
+        </item>
         <item>
             <title>1.0.2</title>
             <pubDate>Tue, 29 Sep 2026 00:19:49 -0400</pubDate>

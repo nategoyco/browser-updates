@@ -1,3 +1,3 @@
-# Browser updates
+# Pane updates
 
-Update feed for the browser app. Install the latest release from the Releases page.
+Update feed for Pane, the browser. Install the latest release from the Releases page.
