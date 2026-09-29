@@ -3,6 +3,24 @@
     <channel>
         <title>MyApp</title>
         <item>
+            <title>1.0.2</title>
+            <pubDate>Tue, 29 Sep 2026 00:19:49 -0400</pubDate>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.0.2</h3>
+<ul>
+<li>Links from pinned tabs (like Gmail) that go to another site now open in Glance, like Arc. Press ⌘Return to keep one as a tab.</li>
+<li>Turn it off in Settings › General › Open links from pinned tabs in Glance.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.2/MyApp-1.0.2.zip" length="2987678" type="application/octet-stream" sparkle:edSignature="lpBo5tnNJrvD5dTVy9db3a60qUKXAccTaz7bnVo9elVHGQAhmQc7VM/e+ZMk29kiqp+ZVmidjwFvZFzIKzWbDA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.2/MyApp3-2.delta" sparkle:deltaFrom="2" length="157770" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="941872" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="fDzaJmYV4r3H/qJmWZxoC0Ryq+/FO4KKz6Oh1naOIzBVrXewmzmCOmGdu8Dnicl6N0aKGe3U/Lcu+QN9vo+QCg=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.0.1</title>
             <pubDate>Tue, 29 Sep 2026 00:15:02 -0400</pubDate>
             <sparkle:version>2</sparkle:version>
