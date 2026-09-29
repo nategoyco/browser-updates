@@ -5,351 +5,478 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Pane — the calm browser for Mac</title>
 <meta name="description" content="Pane is a calm, fast browser for Mac. Tabs that tidy themselves, an address bar that stays out of the way, and spaces with their own colors and logins.">
-<meta property="og:title" content="Pane — the calm browser for Mac">
-<meta property="og:description" content="Tabs that tidy themselves, an address bar that stays out of the way, and spaces with their own colors and logins.">
-<meta property="og:image" content="img/hero.jpg">
 <link rel="icon" href="img/icon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650;12..96,760&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <style>
-/* One warm, light world like Dia's: an off-white page, a soft painted hero with a
-   huge outlined wordmark behind a real screenshot, a floating pill menu, and a
-   download button that stays with you. Serif for voice, sans for everything else. */
+/* Layout: a soft pastel hero with a live, drawn Pane window; then alternating
+   feature rows (words + a small working demo); a dense grid; keys; download. */
 :root {
-  --paper: #F7F5F0;
-  --white: #FFFFFF;
+  --bg: #FBFAF7;
+  --surface: #FFFFFF;
+  --sunk: #F2EFEA;
   --ink: #1C1B1F;
-  --ink-2: #5F5B64;
-  --ink-3: #9A96A0;
-  --rule: #E6E2DA;
-  --peach: #F2B48C;
-  --rose: #E9A6BF;
-  --butter: #F5DC8A;
-  --lilac: #CDB1EC;
-  --serif: "Newsreader", "Iowan Old Style", "Palatino", Georgia, serif;
-  --sans: "Geist", -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
-  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ink-2: #57545E;
+  --ink-3: #8C8894;
+  --line: rgba(28,27,31,.09);
+  --butter: #FDF0B8;
+  --peach: #F9CFA6;
+  --rose: #F0BFD2;
+  --lilac: #DCC2F0;
+  --pane: #1E1C23;
+  --pane-2: #2C2A33;
+  --glow: rgba(249,207,166,.55);
+  --display: "Bricolage Grotesque", "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+  --body: "Hanken Grotesk", "SF Pro Text", ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 22px;
   color-scheme: light;
 }
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; display: block; }
-a { color: inherit; }
-h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
-p { margin: 0; }
-:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
-.gutter { padding-inline: 20px; }
-.wrap { max-width: 1120px; margin-inline: auto; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111014; --surface: #1A1920; --sunk: #16151B; --ink: #F3F0EC; --ink-2: #BDB8C4; --ink-3: #8C8894;
+    --line: rgba(243,240,236,.1); --pane: #0B0A0E; --pane-2: #24222B; --glow: rgba(240,191,210,.18);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111014; --surface: #1A1920; --sunk: #16151B; --ink: #F3F0EC; --ink-2: #BDB8C4; --ink-3: #8C8894;
+  --line: rgba(243,240,236,.1); --pane: #0B0A0E; --pane-2: #24222B; --glow: rgba(240,191,210,.18);
+  color-scheme: dark;
+}
 
-/* Floating pill menu */
-.menu { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 50%; transform: translateX(-50%); z-index: 20;
-  display: flex; align-items: center; gap: 4px; padding: 5px 6px; background: rgba(255,255,255,.82); backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(28,27,31,.06); border-radius: 12px; box-shadow: 0 6px 24px -12px rgba(28,27,31,.25); }
-.menu img { width: 26px; height: 26px; border-radius: 7px; }
-.menu a { text-decoration: none; font-size: 13.5px; font-weight: 500; padding: 5px 10px; border-radius: 8px; color: var(--ink); }
-.menu a:hover { background: rgba(28,27,31,.05); }
-.menu .home { padding: 2px 6px 2px 2px; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 17px/1.55 var(--body); padding-inline: 20px; overflow-x: hidden; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; letter-spacing: -.02em; }
+p { margin: 0; }
+.wrap { max-width: 1120px; margin-inline: auto; }
+:focus-visible { outline: 2px solid #C98A5E; outline-offset: 3px; border-radius: 8px; }
+
+/* Nav */
+nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 650 20px var(--display); text-decoration: none; }
+.brand svg { width: 30px; height: 30px; flex: none; }
+.navlinks { display: flex; align-items: center; gap: 26px; font-size: 15px; color: var(--ink-2); }
+.navlinks a { text-decoration: none; }
+.navlinks a:hover { color: var(--ink); }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: var(--bg); text-decoration: none;
+  font: 600 15px var(--body); padding: 12px 20px; border-radius: 999px; transition: transform .2s, box-shadow .2s; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 10px 30px -10px var(--glow), 0 6px 18px -8px rgba(0,0,0,.35); }
+.btn svg { width: 16px; height: 16px; }
+.btn.small { padding: 9px 16px; font-size: 14px; }
+@media (max-width: 720px) { .navlinks a:not(.btn) { display: none; } }
 
 /* Hero */
-.hero { position: relative; overflow: hidden; padding-top: calc(env(safe-area-inset-top, 0px) + 110px); background: var(--paper); }
-.paint { position: absolute; inset: 0 0 18% 0; pointer-events: none;
+.hero { position: relative; padding-block: 56px 40px; text-align: center; }
+.hero::before { content: ""; position: absolute; inset: -40px -30vw auto; height: 720px; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(38% 50% at 18% 30%, var(--butter) 0%, transparent 70%),
-    radial-gradient(40% 55% at 48% 18%, var(--peach) 0%, transparent 72%),
-    radial-gradient(34% 50% at 82% 28%, var(--lilac) 0%, transparent 70%),
-    radial-gradient(40% 45% at 70% 70%, var(--rose) 0%, transparent 72%),
-    linear-gradient(180deg, #F0C9AE, #EFCBCB 60%, var(--paper));
-  filter: blur(6px); }
-.tagline { position: relative; z-index: 1; text-align: center; font: 300 clamp(28px, 4.4vw, 50px)/1.08 var(--serif); letter-spacing: -.01em; color: #3E2F31; }
-.wordmark { position: relative; text-align: center; font: italic 300 clamp(170px, 30vw, 430px)/.8 var(--serif); letter-spacing: -.035em;
-  color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,.95); margin-top: clamp(28px, 5vw, 64px); user-select: none; }
-.shot { position: relative; z-index: 1; max-width: 1080px; margin: clamp(-150px, -12vw, -60px) auto 0; }
-.shot img { border-radius: 14px; box-shadow: 0 2px 0 rgba(255,255,255,.6) inset, 0 40px 80px -30px rgba(90,50,60,.45), 0 0 0 1px rgba(28,27,31,.08); }
-.arc { position: relative; z-index: 2; height: 120px; margin-top: -90px; background: var(--paper); border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+    radial-gradient(40% 55% at 20% 20%, var(--butter), transparent 70%),
+    radial-gradient(40% 60% at 55% 35%, var(--peach), transparent 70%),
+    radial-gradient(35% 55% at 85% 30%, var(--lilac), transparent 70%),
+    radial-gradient(30% 40% at 70% 70%, var(--rose), transparent 70%);
+  opacity: .75; filter: saturate(1.05); }
+:root[data-theme="dark"] .hero::before { opacity: .22; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hero::before { opacity: .22; } }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--ink-2);
+  background: color-mix(in srgb, var(--surface) 70%, transparent); border: 1px solid var(--line); padding: 6px 14px; border-radius: 999px; }
+.eyebrow b { font-family: var(--mono); font-weight: 500; font-size: 12px; background: var(--ink); color: var(--bg); padding: 2px 7px; border-radius: 6px; }
+.hero h1 { font-size: clamp(46px, 8.6vw, 104px); line-height: .95; font-weight: 760; margin-top: 22px; }
+.hero h1 em { font-style: normal; background: linear-gradient(100deg, #E6A36F, #D98AA8 55%, #A98AD6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .lede { max-width: 58ch; margin: 22px auto 0; font-size: 20px; color: var(--ink-2); }
+.cta { display: flex; justify-content: center; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 30px; }
+.fine { font-size: 13.5px; color: var(--ink-3); }
 
-/* The download button that stays with you */
-.dock { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom, 0px) + 18px); z-index: 20; text-align: center; }
-.download { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; text-decoration: none; font: 500 15px var(--sans);
-  padding: 13px 28px; border-radius: 999px; box-shadow: 0 12px 30px -12px rgba(28,27,31,.6); transition: transform .2s ease; white-space: nowrap; }
-.download:hover { transform: translateY(-1px); }
-.download svg { width: 14px; height: 14px; }
-.avail { margin-top: 8px; font-size: 12px; color: var(--ink-3); }
-.dock .avail { display: none; }
+/* The drawn Pane window */
+.window { position: relative; margin: 54px auto 0; max-width: 1040px; aspect-ratio: 16 / 10; border-radius: 18px; overflow: hidden;
+  background: linear-gradient(135deg, #EDE7F2, #F7E9DD); box-shadow: 0 50px 100px -40px rgba(60,30,50,.45), 0 0 0 1px var(--line);
+  display: grid; grid-template-columns: 24% 1fr; gap: 8px; padding: 8px; text-align: left; }
+:root[data-theme="dark"] .window { background: linear-gradient(135deg, #2A2331, #2E2622); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .window { background: linear-gradient(135deg, #2A2331, #2E2622); } }
+.side { border-radius: 12px; background: color-mix(in srgb, #fff 55%, transparent); backdrop-filter: blur(20px); padding: 12px 10px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+:root[data-theme="dark"] .side { background: rgba(255,255,255,.06); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .side { background: rgba(255,255,255,.06); } }
+.lights { display: flex; gap: 6px; padding: 2px 4px 6px; }
+.lights i { width: 10px; height: 10px; border-radius: 50%; background: #FF5F57; }
+.lights i:nth-child(2) { background: #FEBC2E; } .lights i:nth-child(3) { background: #28C840; }
+.spacename { font: 650 clamp(11px, 1.5vw, 16px) var(--display); padding-inline: 4px; }
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.tile { aspect-ratio: 1.45; border-radius: 9px; background: rgba(28,27,31,.07); display: grid; place-items: center; }
+:root[data-theme="dark"] .tile { background: rgba(255,255,255,.08); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tile { background: rgba(255,255,255,.08); } }
+.tile span { width: 34%; aspect-ratio: 1; border-radius: 4px; }
+.tabs { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; }
+.tab { display: flex; align-items: center; gap: 7px; padding: 6px 7px; border-radius: 7px; font-size: clamp(9px, 1.1vw, 12.5px); color: var(--ink-2); white-space: nowrap; overflow: hidden; }
+.tab.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+.tab span { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.folder { font-weight: 600; color: var(--ink); }
+.main { border-radius: 12px; overflow: hidden; background: var(--surface); display: flex; flex-direction: column; min-width: 0; position: relative; }
+.bar { display: flex; align-items: center; gap: clamp(8px, 1.6vw, 16px); padding: 0 16px; height: 13%; min-height: 34px; background: #DCE8F3; color: #1C1B1F; font-size: clamp(10px, 1.3vw, 14px); transition: background .6s ease; }
+.bar .ico { opacity: .55; font-size: 1.05em; }
+.crumb b { font-weight: 600; }
+.crumb span { opacity: .5; }
+.page { flex: 1; background: #DCE8F3; padding: 7% 8%; color: #1C1B1F; transition: background .6s ease; }
+.page .kicker { font: 500 clamp(7px, .9vw, 10px) var(--mono); letter-spacing: .18em; opacity: .55; text-transform: uppercase; }
+.page h3 { font-size: clamp(18px, 3.4vw, 44px); line-height: 1; margin-top: 10px; letter-spacing: -.03em; }
+.page .lines { margin-top: 5%; display: grid; gap: 9px; }
+.page .lines i { display: block; height: clamp(5px, .8vw, 9px); border-radius: 5px; background: rgba(28,27,31,.12); }
+.drop { position: absolute; left: 15%; right: 4%; top: 13%; background: inherit; border-radius: 0 0 14px 14px; background: #DCE8F3; color: #1C1B1F;
+  box-shadow: 0 24px 40px -20px rgba(20,20,40,.35); transform-origin: top; transform: scaleY(0); opacity: 0;
+  transition: transform .5s cubic-bezier(.2,.9,.25,1.1), opacity .25s; padding: 4px 10px 10px; }
+.drop.open { transform: scaleY(1); opacity: 1; }
+.field { display: flex; align-items: center; gap: 10px; font-size: clamp(11px, 1.6vw, 18px); padding: 10px 8px; font-weight: 500; }
+.field .ghost { opacity: .35; }
+.pill { font: 600 .62em var(--body); background: rgba(28,27,31,.1); padding: 3px 8px; border-radius: 999px; margin-left: 6px; }
+.result { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; background: rgba(28,27,31,.07); font-size: clamp(9px, 1.2vw, 13px); }
+.result small { display: block; opacity: .55; }
+.caret { display: inline-block; width: 1.5px; height: 1.1em; background: currentColor; vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
 
 /* Sections */
-section { padding-block: 96px; }
-.lead { text-align: center; }
-.lead h2 { font: 300 clamp(38px, 5.4vw, 64px)/1.04 var(--serif); letter-spacing: -.02em; }
-.lead p { margin: 18px auto 0; max-width: 54ch; color: var(--ink-2); font-size: 17px; }
+section { padding-block: 72px; }
+.row { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+.row.flip .copy { order: 2; }
+.row > * { min-width: 0; }
+@media (max-width: 860px) { .row { grid-template-columns: 1fr; gap: 28px; } .row.flip .copy { order: 0; } }
+.copy h2 { font-size: clamp(34px, 4.6vw, 54px); line-height: 1.02; font-weight: 700; }
+.copy p { margin-top: 18px; color: var(--ink-2); max-width: 48ch; }
+.copy ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 9px; color: var(--ink-2); font-size: 16px; }
+.copy li { display: flex; gap: 10px; }
+.copy li::before { content: ""; flex: none; width: 7px; height: 7px; margin-top: 9px; border-radius: 50%; background: linear-gradient(135deg, #E6A36F, #A98AD6); }
+.demo { border-radius: var(--radius); background: var(--sunk); border: 1px solid var(--line); padding: clamp(18px, 3vw, 34px); position: relative; overflow: hidden; }
 
-/* Walkthrough: pick an idea on the left, see it on the right */
-.walk { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 56px; align-items: center; margin-top: 64px; }
-@media (max-width: 880px) { .walk { grid-template-columns: 1fr; gap: 28px; } }
-.steps { display: grid; gap: 26px; }
-.step { border: 0; background: none; text-align: left; padding: 0 0 0 20px; border-left: 1.5px solid var(--rule); cursor: pointer; font: inherit; color: var(--ink-3); transition: color .25s, border-color .25s; }
-.step .n { font: 400 11px var(--mono); letter-spacing: .06em; }
-.step h3 { font: 400 25px/1.2 var(--serif); margin-top: 6px; color: inherit; }
-.step p { margin-top: 8px; font-size: 14.5px; color: var(--ink-2); display: none; }
-.step[aria-selected="true"] { border-color: var(--ink); color: var(--ink); }
-.step[aria-selected="true"] p { display: block; }
-.frame { border-radius: 16px; overflow: hidden; background: var(--white); border: 1px solid var(--rule); box-shadow: 0 30px 60px -40px rgba(28,27,31,.35); }
-.frame img { width: 100%; }
+/* Demo: sidebar */
+.mini-side { max-width: 320px; margin-inline: auto; background: var(--surface); border-radius: 16px; padding: 14px; box-shadow: 0 20px 40px -24px rgba(0,0,0,.3); display: grid; gap: 8px; }
+.mini-side .tiles .tile { aspect-ratio: 1.4; }
+.divider { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-3); margin-block: 2px; }
+.divider::before { content: ""; flex: 1; height: 1px; background: var(--line); }
+.tidy { font-weight: 600; border: 0; background: none; color: var(--ink-2); font: 600 12px var(--body); cursor: pointer; padding: 4px 8px; border-radius: 999px; }
+.tidy:hover { background: var(--sunk); color: var(--ink); }
+.trow { display: flex; align-items: center; gap: 9px; padding: 7px 8px; border-radius: 8px; font-size: 14px; }
+.trow span { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+.trow.f { font-weight: 600; }
+.trow .n { margin-left: auto; font-size: 12px; color: var(--ink-3); }
+.fold { transition: max-height .5s ease, opacity .4s; overflow: hidden; }
 
-/* Built for how you browse */
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 60px; }
-@media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
-.card { border: 1px solid var(--rule); border-radius: 18px; background: var(--white); padding: 26px 26px 0; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
-.label { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
-.card p { margin-top: 10px; font-size: 16px; color: var(--ink-2); max-width: 46ch; }
-.card .art { margin-top: 26px; flex: 1; display: flex; align-items: flex-end; justify-content: center; min-height: 190px; }
+/* Demo: colors */
+.pad { height: 180px; border-radius: 16px; position: relative; overflow: hidden; transition: background .6s ease; }
+.pad .glass { position: absolute; inset: 18px auto 18px 18px; width: 38%; border-radius: 12px; background: rgba(255,255,255,.35); backdrop-filter: blur(14px); padding: 12px; display: grid; gap: 7px; align-content: start; }
+.pad .glass i { height: 8px; border-radius: 4px; background: rgba(28,27,31,.18); }
+.swatches { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.swatch { width: 38px; height: 38px; border-radius: 50%; border: 0; cursor: pointer; box-shadow: inset 0 0 0 3px rgba(255,255,255,.4); transition: transform .2s; }
+.swatch:hover { transform: scale(1.1); }
+.swatch[aria-pressed="true"] { outline: 2.5px solid var(--ink); outline-offset: 3px; }
+.login { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding: 12px 14px; background: var(--surface); border-radius: 12px; font-size: 14.5px; }
+.switch { width: 40px; height: 24px; border-radius: 999px; background: var(--ink); position: relative; flex: none; }
+.switch::after { content: ""; position: absolute; right: 3px; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--bg); }
 
-/* Card art: small, quiet, drawn from the app */
-.glance { width: 78%; background: #F2EFEA; border-radius: 14px 14px 0 0; padding: 12px 12px 0; box-shadow: 0 -1px 0 var(--rule) inset; }
-.glance .bar { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-2); padding: 0 4px 10px; }
-.glance .bar b { font-weight: 600; color: var(--ink); }
-.glance .keep { background: var(--ink); color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 999px; }
-.glance .page { height: 120px; background: var(--white); border-radius: 10px 10px 0 0; padding: 16px; display: grid; gap: 8px; align-content: start; }
-.line { height: 8px; border-radius: 4px; background: #ECE8E2; }
-.split { width: 82%; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: #F2EFEA; border-radius: 14px 14px 0 0; padding: 8px 8px 0; }
-.split div { background: var(--white); height: 150px; border-radius: 9px 9px 0 0; padding: 12px; display: grid; gap: 7px; align-content: start; }
-.spaces { display: flex; gap: 12px; margin-bottom: 26px; }
-.space { width: 118px; height: 150px; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; font: 500 13px var(--sans); }
-.space small { font: 400 11px var(--mono); opacity: .6; }
-.pip { position: relative; width: 82%; height: 170px; background: #F2EFEA; border-radius: 14px 14px 0 0; }
-.pip .float { position: absolute; right: 16px; top: 18px; width: 46%; aspect-ratio: 16/9; border-radius: 10px; background: linear-gradient(135deg, #3A2E3F, #1C1B1F); box-shadow: 0 16px 30px -12px rgba(0,0,0,.45); display: grid; place-items: center; color: #fff; font-size: 20px; }
-.save { width: 64%; background: var(--white); border: 1px solid var(--rule); border-radius: 12px; padding: 6px; margin-bottom: 28px; box-shadow: 0 20px 40px -24px rgba(28,27,31,.4); font-size: 13.5px; }
-.save div { padding: 7px 10px; border-radius: 7px; }
-.save .on { background: #3F7BF3; color: #fff; }
-.save hr { border: 0; height: 1px; background: var(--rule); margin: 5px 6px; }
-.imports { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 36px; max-width: 360px; }
-.imports span { font-size: 13.5px; padding: 7px 13px; border-radius: 999px; background: #F2EFEA; }
+/* Demo: tinted bars */
+.bars { display: grid; gap: 10px; }
+.tbar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 12px; font-size: 14px; }
+.tbar b { font-weight: 600; }
+.tbar span { opacity: .55; }
 
-/* Privacy: a slow drift of switches, all set the calm way */
-.privacy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
-@media (max-width: 860px) { .privacy { grid-template-columns: 1fr; } }
-.privacy h2 { font: 300 clamp(38px, 5vw, 58px)/1.04 var(--serif); letter-spacing: -.02em; }
-.privacy h2 em { font-style: italic; }
-.privacy p { margin-top: 18px; color: var(--ink-2); max-width: 46ch; }
-.toggles { height: 340px; overflow: hidden; border-radius: 18px; background: var(--white); border: 1px solid var(--rule); position: relative;
-  -webkit-mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent); mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent); }
-.drift { display: grid; gap: 10px; padding: 16px; animation: drift 26s linear infinite; }
-@keyframes drift { to { transform: translateY(-50%); } }
-.t { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 12px; background: var(--paper); font-size: 15px; }
-.t i { font-style: normal; font-size: 13px; color: var(--ink-3); display: flex; align-items: center; gap: 10px; }
-.t i::after { content: ""; width: 34px; height: 20px; border-radius: 999px; background: #D9D5CE; box-shadow: inset -14px 0 0 2px #D9D5CE, inset 0 0 0 2px #D9D5CE; background: #fff; }
-.t.on i::after { background: #fff; box-shadow: inset 14px 0 0 2px var(--ink), inset 0 0 0 2px var(--ink); }
+/* Grid of everything */
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 34px; }
+@media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+.feat { padding: 22px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); }
+.feat h3 { font-size: 19px; font-weight: 650; letter-spacing: -.01em; }
+.feat p { margin-top: 7px; font-size: 15px; color: var(--ink-2); }
+.feat .k { display: inline-flex; gap: 4px; margin-top: 12px; }
+.center { text-align: center; }
+.center h2 { font-size: clamp(34px, 5vw, 58px); font-weight: 700; line-height: 1.02; }
+.center > p { margin: 16px auto 0; max-width: 56ch; color: var(--ink-2); }
 
 /* Keys */
-.keys { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; margin-top: 36px; color: var(--ink-2); font-size: 15px; }
-.keys span { display: inline-flex; align-items: center; gap: 8px; }
-kbd { font: 400 12.5px var(--mono); min-width: 24px; height: 24px; padding: 0 6px; display: inline-grid; place-items: center; border-radius: 6px; background: var(--white); border: 1px solid var(--rule); box-shadow: 0 1px 0 var(--rule); color: var(--ink); }
+kbd { font: 500 13px var(--mono); min-width: 28px; height: 28px; padding: 0 7px; display: inline-grid; place-items: center; border-radius: 7px;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: 0 1.5px 0 var(--line); color: var(--ink); }
+.keys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 30px; }
+@media (max-width: 900px) { .keys { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.key { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; border-radius: 14px; background: var(--sunk); font-size: 15px; }
+.key span { display: inline-flex; gap: 4px; flex: none; }
 
-/* Closing */
-.closing { text-align: center; padding-block: 120px 150px; }
-.closing h2 { font: 300 clamp(44px, 7vw, 84px)/1 var(--serif); letter-spacing: -.02em; }
-.closing .download { margin-top: 34px; }
-.install { margin: 44px auto 0; max-width: 760px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; text-align: left; font-size: 14.5px; color: var(--ink-2); }
-@media (max-width: 700px) { .install { grid-template-columns: 1fr; } }
-.install b { display: block; font: 400 19px var(--serif); color: var(--ink); margin-bottom: 4px; }
+/* Download */
+.get { border-radius: 28px; padding: clamp(28px, 6vw, 64px); position: relative; overflow: hidden; text-align: center;
+  background: linear-gradient(120deg, var(--butter), var(--peach) 40%, var(--rose) 70%, var(--lilac)); color: #1C1B1F; }
+.get h2 { font-size: clamp(36px, 6vw, 68px); font-weight: 760; line-height: .98; }
+.get .btn { background: #1C1B1F; color: #FBFAF7; margin-top: 28px; }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 36px; text-align: left; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+.step { background: rgba(255,255,255,.55); border-radius: 16px; padding: 18px; font-size: 15px; }
+.step b { display: block; font-family: var(--display); font-size: 17px; margin-bottom: 4px; }
+footer { padding-block: 40px 60px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--ink-3); font-size: 14px; }
 
-footer { border-top: 1px solid var(--rule); padding-block: 48px 120px; }
-.cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
-@media (max-width: 700px) { .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.cols h4 { margin: 0 0 12px; font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
-.cols a, .cols span { display: block; font-size: 14px; text-decoration: none; margin-bottom: 8px; color: var(--ink-2); }
-.cols a:hover { color: var(--ink); }
-
-@media (max-width: 560px) { .menu a.hide-sm { display: none; } .wordmark { -webkit-text-stroke-width: 1.4px; } }
-@media (prefers-reduced-motion: reduce) { .drift { animation: none; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 </style>
+<style>body { margin: 0; } img { max-width: 100%; }</style>
 </head>
 <body>
 
-<nav class="menu" aria-label="Pane">
-  <a class="home" href="#top" aria-label="Pane home"><img src="img/icon.png" alt=""></a>
-  <a href="#features">Features</a>
-  <a class="hide-sm" href="#privacy">Privacy</a>
-  <a href="https://github.com/nategoyco/browser-updates/releases">What's New</a>
-</nav>
 
-<header class="hero gutter" id="top">
-  <div class="paint" aria-hidden="true"></div>
-  <p class="tagline">A calmer browser. A calmer day.</p>
-  <div class="wordmark" aria-hidden="true">Pane</div>
-  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Pane, the calm browser for Mac</h1>
-  <div class="shot"><img src="img/hero.jpg" width="1389" height="868" alt="Pane on a Mac: a sidebar with Gmail, Calendar and Spotify tiles, an Italy trip folder, and a Wikipedia article about Ischia."></div>
-  <div class="arc" aria-hidden="true"></div>
-</header>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#top" aria-label="Pane home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FDF0B8"/><stop offset=".4" stop-color="#F9CFA6"/><stop offset=".75" stop-color="#F0BFD2"/><stop offset="1" stop-color="#DCC2F0"/></linearGradient><linearGradient id="pd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B3842"/><stop offset="1" stop-color="#121115"/></linearGradient></defs><rect width="64" height="64" rx="15" fill="url(#pd)"/><rect x="9" y="15" width="10" height="3" rx="1.5" fill="#fff" opacity=".6"/><rect x="9" y="21" width="7" height="3" rx="1.5" fill="#fff" opacity=".3"/><rect x="23" y="12" width="34" height="43" rx="8" fill="url(#pg)"/><rect x="36" y="16" width="9" height="2" rx="1" fill="#1C1B1F" opacity=".25"/></svg>
+      Pane
+    </a>
+    <div class="navlinks">
+      <a href="#features">Features</a>
+      <a href="#keys">Shortcuts</a>
+      <a class="btn small" href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">Download</a>
+    </div>
+  </nav>
 
-<div class="dock">
-  <a class="download" href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">
-    Download Pane for free
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v10M3.5 8.5 8 13l4.5-4.5"/></svg>
-  </a>
+  <header class="hero" id="top">
+    <span class="eyebrow"><b>1.1</b> A new welcome, a new icon, and a bar that matches every site</span>
+    <h1>The <em>calm</em> browser<br>for your Mac.</h1>
+    <p class="lede">Pane keeps the web quiet. Tabs tidy themselves, the address bar stays out of the way until you need it, and every space gets its own color, tabs and logins.</p>
+    <div class="cta">
+      <a class="btn" href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.9-1.1-2.9-4.2zM13.9 5.1c.7-.9 1.2-2.1 1-3.3-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.2 1.2.1 2.4-.6 3.1-1.5z"/></svg>
+        Download for Mac
+      </a>
+      <span class="fine">Free · macOS 26 Tahoe · Apple silicon</span>
+    </div>
+
+    <div class="window" aria-label="A Pane window with the address bar dropping down">
+      <aside class="side">
+        <div class="lights"><i></i><i></i><i></i></div>
+        <div class="spacename">Personal</div>
+        <div class="tiles">
+          <div class="tile"><span style="background:#EA4335"></span></div>
+          <div class="tile"><span style="background:#1DB954"></span></div>
+          <div class="tile"><span style="background:#1C1B1F"></span></div>
+        </div>
+        <div class="tabs">
+          <div class="tab folder">▸ Italy trip <span style="width:auto;height:auto;margin-left:auto;opacity:.5;background:none">4</span></div>
+          <div class="tab on"><span style="background:#8EA3B8"></span>The Geography of Ischia</div>
+          <div class="tab"><span style="background:#F9CFA6"></span>My Brilliant Friend</div>
+          <div class="tab"><span style="background:#FF0033"></span>Mastering Squid</div>
+          <div class="tab" style="opacity:.6">+ New tab</div>
+        </div>
+      </aside>
+      <div class="main">
+        <div class="bar" id="bar">
+          <span class="ico">◧</span><span class="ico">‹</span><span class="ico">›</span><span class="ico">↻</span>
+          <span class="crumb"><b id="site">ischia.travel</b> <span>/ <span id="ptitle">The Geography of Ischia</span></span></span>
+        </div>
+        <div class="page" id="page">
+          <div class="kicker">Geographic profile</div>
+          <h3>Ischia,<br>the volcanic island</h3>
+          <div class="lines"><i style="width:82%"></i><i style="width:74%"></i><i style="width:88%"></i><i style="width:40%"></i></div>
+        </div>
+        <div class="drop" id="drop">
+          <div class="field"><span style="opacity:.5">⌕</span><span id="typed"></span><span class="caret"></span><span class="ghost" id="ghost"></span><span class="pill" id="switch" hidden>Switch to Tab</span></div>
+          <div class="result" id="result" hidden><span style="width:18px;height:18px;border-radius:5px;background:#1C1B1F;flex:none"></span><div><b>Apple</b><small>apple.com · already open</small></div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="features">
+    <div class="row">
+      <div class="copy">
+        <h2>Everything starts at the top.</h2>
+        <p>Click anywhere on the bar and the address drops straight down from it, in the page's own color. Start typing and Pane finishes the address for you.</p>
+        <ul>
+          <li>Autofill from your open tabs, bookmarks and the sites you visit most</li>
+          <li>Already open? Return switches to that tab, even in another space</li>
+          <li>Actions show up only when you type them. Type &gt; to see them all</li>
+        </ul>
+      </div>
+      <div class="demo" aria-hidden="true">
+        <div class="bars">
+          <div class="tbar" style="background:#F3F0EC;color:#1C1B1F"><span>◧ ‹ › ↻</span><b>github.com</b><span>/ Pull requests</span></div>
+          <div class="tbar" style="background:#1E1C23;color:#F3F0EC;border-radius:12px 12px 0 0;margin-bottom:-10px"><span>⌕</span><b>ap</b><span>ple.com</span><span class="pill" style="background:rgba(255,255,255,.14);opacity:1">Switch to Tab</span></div>
+          <div class="tbar" style="background:#1E1C23;color:#F3F0EC;border-radius:0 0 12px 12px;padding-top:4px"><span style="width:16px;height:16px;border-radius:4px;background:#F3F0EC;opacity:1"></span><b>Apple</b><span>apple.com</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row flip">
+      <div class="copy">
+        <h2>A sidebar that tidies itself.</h2>
+        <p>Pin what you use every day as big icon tiles, just by dragging a tab to the top. Everything else lives in Today, and one click on Tidy sorts it into folders by what kind of site it is.</p>
+        <ul>
+          <li>Drag tabs to reorder them, drop them into folders, or pull them up to pin</li>
+          <li>Tabs you haven't opened in a while go to sleep and free up memory</li>
+          <li>Unused tabs move to the Archive, so nothing is ever lost</li>
+        </ul>
+      </div>
+      <div class="demo">
+        <div class="mini-side">
+          <div class="tiles">
+            <div class="tile"><span style="background:#EA4335"></span></div>
+            <div class="tile"><span style="background:#4285F4"></span></div>
+            <div class="tile"><span style="background:#1DB954"></span></div>
+          </div>
+          <div class="divider"><button class="tidy" id="tidy" type="button">✦ Tidy</button></div>
+          <div id="messy">
+            <div class="trow"><span style="background:#1C1B1F"></span>anthropics/claude · GitHub</div>
+            <div class="trow"><span style="background:#FF0033"></span>Lo-fi beats to focus to</div>
+            <div class="trow"><span style="background:#1C1B1F"></span>Pull requests · GitHub</div>
+            <div class="trow"><span style="background:#FF0033"></span>How volcanoes form</div>
+            <div class="trow"><span style="background:#8EA3B8"></span>The Geography of Ischia</div>
+          </div>
+          <div id="tidied" hidden>
+            <div class="trow f">▸ Dev <span class="n">2</span></div>
+            <div class="trow f">▸ Video <span class="n">2</span></div>
+            <div class="trow"><span style="background:#8EA3B8"></span>The Geography of Ischia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row">
+      <div class="copy">
+        <h2>Spaces with their own color and logins.</h2>
+        <p>Keep Work and Personal apart. Each space gets its own tabs, its own color from a soft palette or a gradient you pick, and if you like, its own cookies, so you can be signed into two accounts at once.</p>
+      </div>
+      <div class="demo">
+        <div class="pad" id="pad"><div class="glass"><i style="width:70%"></i><i></i><i style="width:80%"></i><i style="width:55%"></i></div></div>
+        <div class="swatches" role="group" aria-label="Try a space color">
+          <button class="swatch" type="button" aria-pressed="true" aria-label="Clay" data-a="#F6D9C6" data-b="#E8B89B" style="background:#D9A488"></button>
+          <button class="swatch" type="button" aria-pressed="false" aria-label="Sage" data-a="#E3EDDD" data-b="#B9CEB2" style="background:#8FA58C"></button>
+          <button class="swatch" type="button" aria-pressed="false" aria-label="Mist" data-a="#DDE7F1" data-b="#B4C6D8" style="background:#8EA3B8"></button>
+          <button class="swatch" type="button" aria-pressed="false" aria-label="Lavender" data-a="#ECE3F6" data-b="#CBBDE3" style="background:#A69BBF"></button>
+          <button class="swatch" type="button" aria-pressed="false" aria-label="Sunset gradient" data-a="#FDF0B8" data-b="#F0BFD2" style="background:linear-gradient(135deg,#FDF0B8,#F0BFD2,#DCC2F0)"></button>
+        </div>
+        <div class="login"><span><b>Separate logins</b><br><span style="color:var(--ink-3);font-size:13.5px">Its own cookies and sign-ins</span></span><span class="switch" aria-hidden="true"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="row flip">
+      <div class="copy">
+        <h2>The bar takes on every site's color.</h2>
+        <p>Pane reads each page's own color and tints the bar above it to match, with text that stays readable. The browser steps back and the page takes the whole window.</p>
+      </div>
+      <div class="demo" aria-hidden="true">
+        <div class="bars">
+          <div class="tbar" style="background:#DCE8F3;color:#1C1B1F"><span>◧ ‹ › ↻</span><b>ischia.travel</b><span>/ The Geography of Ischia</span></div>
+          <div class="tbar" style="background:#0F0F10;color:#F3F0EC"><span>◧ ‹ › ↻</span><b>youtube.com</b><span>/ Mastering Squid</span></div>
+          <div class="tbar" style="background:#F4E7C8;color:#1C1B1F"><span>◧ ‹ › ↻</span><b>newyorker.com</b><span>/ Fiction</span></div>
+          <div class="tbar" style="background:#0D1117;color:#F3F0EC"><span>◧ ‹ › ↻</span><b>github.com</b><span>/ Pull requests</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="center">
+    <h2>Everything else you'd expect.<br>A few things you wouldn't.</h2>
+    <p>Built on WebKit, the engine behind Safari, so it's fast, light on battery and made for the Mac.</p>
+    <div class="grid">
+      <div class="feat"><h3>Ads and trackers blocked</h3><p>On by default and run inside the engine, so pages load faster. Pause it for any site.</p></div>
+      <div class="feat"><h3>Picture in picture</h3><p>Leave a tab while a video plays with sound and it floats in its own window. Muted videos and previews never pop out.</p></div>
+      <div class="feat"><h3>Glance</h3><p>Links from Mail, Slack or a pinned Gmail open in a small window first. Keep the page with <kbd>⌘</kbd> <kbd>↩</kbd>.</p></div>
+      <div class="feat"><h3>Split view</h3><p>Two pages side by side in one window, with a divider you can drag.</p></div>
+      <div class="feat"><h3>Designer tools</h3><p>An eyedropper that copies any color's hex, and a font inspector that shows a page's type styles.</p></div>
+      <div class="feat"><h3>Save anything</h3><p>Right-click to Save Video, Image, Link or Page As, straight to where you want it.</p></div>
+      <div class="feat"><h3>Bring your stuff</h3><p>Import bookmarks and history from Dia, Arc, Chrome, Safari, Brave or Edge in a click.</p></div>
+      <div class="feat"><h3>History, bookmarks, archive</h3><p>All searchable from the tab panel, and every tab you close can come back with <kbd>⌘</kbd> <kbd>⇧</kbd> <kbd>T</kbd>.</p></div>
+      <div class="feat"><h3>Quiet updates</h3><p>New versions arrive inside the app. Click Install and Relaunch and you're done.</p></div>
+    </div>
+  </section>
+
+  <section class="center" id="keys">
+    <h2>Made for the keyboard.</h2>
+    <p>Every action is a shortcut away, and all of them are listed in Settings.</p>
+    <div class="keys">
+      <div class="key">New tab <span><kbd>⌘</kbd><kbd>T</kbd></span></div>
+      <div class="key">Address bar <span><kbd>⌘</kbd><kbd>L</kbd></span></div>
+      <div class="key">Hide sidebar <span><kbd>⌘</kbd><kbd>S</kbd></span></div>
+      <div class="key">Pin a tab <span><kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd></span></div>
+      <div class="key">Close others <span><kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd></span></div>
+      <div class="key">Split view <span><kbd>⌃</kbd><kbd>⌘</kbd><kbd>=</kbd></span></div>
+      <div class="key">Next space <span><kbd>⌃</kbd><kbd>⌘</kbd><kbd>→</kbd></span></div>
+      <div class="key">Pick a color <span><kbd>⇧</kbd><kbd>⌘</kbd><kbd>E</kbd></span></div>
+    </div>
+  </section>
+
+  <section id="download">
+    <div class="get">
+      <h2>Give the web some calm.</h2>
+      <p style="margin-top:14px;font-size:18px;opacity:.75">Free for macOS 26 on Apple silicon.</p>
+      <a class="btn" href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">Download Pane for Mac</a>
+      <div class="steps">
+        <div class="step"><b>Drag it in</b>Open Pane.dmg and drag Pane into your Applications folder.</div>
+        <div class="step"><b>First open</b>Right-click Pane and choose Open. macOS asks once, since Pane isn't from the App Store.</div>
+        <div class="step"><b>Say hello</b>A full-screen welcome shows you around: pick a color, try the address bar, learn a few shortcuts.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Pane · The calm browser</span>
+    <span>Made with care on a Mac.</span>
+  </footer>
 </div>
 
-<main>
-  <section class="gutter" id="features">
-    <div class="wrap">
-      <div class="lead">
-        <h2>Pane stays out of your way</h2>
-        <p>Most of a browser is things you don't need to see. Pane keeps them tucked away until you reach for them, so the page gets the whole window.</p>
-      </div>
-      <div class="walk">
-        <div class="steps" role="tablist" aria-label="What Pane does">
-          <button class="step" role="tab" aria-selected="true" data-img="img/address.jpg" data-alt="The address bar dropping down from the top bar, with github.com filled in and a Switch to Tab label.">
-            <span class="n">01</span>
-            <h3>An address bar that comes when you call</h3>
-            <p>Click the top of the page and it drops straight down. Type two letters and Pane finishes the address, and if that site's already open, it takes you to the tab instead.</p>
-          </button>
-          <button class="step" role="tab" aria-selected="false" data-img="img/tint.jpg" data-alt="Pane showing GitHub, with the top bar tinted the same dark navy as the site.">
-            <span class="n">02</span>
-            <h3>The bar takes on each site's color</h3>
-            <p>Pane reads the color at the top of every page and tints the bar above it to match, with text that stays readable. You notice the site, not the browser.</p>
-          </button>
-          <button class="step" role="tab" aria-selected="false" data-img="img/hero.jpg" data-alt="Pane's sidebar with pinned tiles, a folder and everyday tabs.">
-            <span class="n">03</span>
-            <h3>Tabs that look after themselves</h3>
-            <p>Pin the sites you live in as tiles. Everything else sorts into folders with one click on Tidy, and tabs you haven't opened in a while go to sleep.</p>
-          </button>
-        </div>
-        <div class="frame"><img id="walk-img" src="img/address.jpg" width="1389" height="868" alt="The address bar dropping down from the top bar, with github.com filled in and a Switch to Tab label."></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="gutter">
-    <div class="wrap">
-      <div class="lead"><h2>Built for how you browse</h2></div>
-      <div class="cards">
-        <div class="card">
-          <span class="label">Spaces</span>
-          <p>Keep work, school and home apart. Each space has its own tabs, its own color, and if you like, its own logins, so you can be signed into two accounts at once.</p>
-          <div class="art">
-            <div class="spaces">
-              <div class="space" style="background:#F1DDD0">Personal<small>Clay · 7 tabs</small></div>
-              <div class="space" style="background:#DCE6DA">Work<small>Sage · own logins</small></div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <span class="label">Tidy tabs</span>
-          <p>Drag tabs to reorder them, drop them into folders, or pull them to the top to pin. Tidy groups the rest by kind of site, and anything you stop using moves to the archive.</p>
-          <div class="art" style="min-height:230px"><img src="img/sidebar.jpg" alt="Pane's sidebar up close" style="width:52%;border-radius:14px 14px 0 0;object-fit:cover;object-position:top;height:230px"></div>
-        </div>
-        <div class="card">
-          <span class="label">Glance</span>
-          <p>Links from Mail, Slack or a pinned Gmail open in a small window first. Read and close it, or keep the page with ⌘ Return.</p>
-          <div class="art">
-            <div class="glance">
-              <div class="bar"><b>nytimes.com</b><span class="keep">Open in Pane</span></div>
-              <div class="page"><div class="line" style="width:70%;height:12px"></div><div class="line"></div><div class="line" style="width:86%"></div><div class="line" style="width:60%"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <span class="label">Picture in picture</span>
-          <p>Switch away from a video playing with sound and it floats in its own window. Muted clips and previews stay where they are.</p>
-          <div class="art"><div class="pip"><div class="float">▶</div></div></div>
-        </div>
-        <div class="card">
-          <span class="label">Split view</span>
-          <p>Two pages side by side in one window. Drag the divider to give one more room.</p>
-          <div class="art"><div class="split"><div><div class="line" style="width:60%"></div><div class="line"></div><div class="line" style="width:80%"></div></div><div><div class="line" style="width:50%"></div><div class="line"></div><div class="line" style="width:70%"></div></div></div></div>
-        </div>
-        <div class="card">
-          <span class="label">Save anything</span>
-          <p>Right-click to save a video, image, link or the whole page, straight to wherever you choose.</p>
-          <div class="art">
-            <div class="save"><div>Open Link in New Tab</div><div>Copy Link</div><hr><div class="on">Save Video As…</div><div>Save Image As…</div><hr><div>Save Page As…</div></div>
-          </div>
-        </div>
-        <div class="card">
-          <span class="label">Designer tools</span>
-          <p>An eyedropper that copies the hex of anything on screen, and a font inspector that shows a page's type as you hover.</p>
-          <div class="art"><div class="imports" style="max-width:none"><span style="font-family:var(--mono)">#F6C9A6 copied</span><span>Newsreader · 300 · 64px</span></div></div>
-        </div>
-        <div class="card">
-          <span class="label">Bring your stuff</span>
-          <p>Import bookmarks and history from the browser you use now, in one click from Settings.</p>
-          <div class="art"><div class="imports"><span>Dia</span><span>Arc</span><span>Chrome</span><span>Safari</span><span>Brave</span><span>Edge</span></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="gutter" id="privacy">
-    <div class="wrap privacy">
-      <div>
-        <h2>Private by default,<br><em>quiet by design</em></h2>
-        <p>Ads and trackers are blocked before they load, inside the engine, so pages are faster too. Pane has no account, no analytics and nothing to sell. Your tabs and history stay on your Mac.</p>
-      </div>
-      <div class="toggles" aria-hidden="true">
-        <div class="drift" id="drift">
-          <div class="t on">Block ads<i>On</i></div>
-          <div class="t on">Block trackers<i>On</i></div>
-          <div class="t">Share usage data<i>Off</i></div>
-          <div class="t on">Separate logins per space<i>On</i></div>
-          <div class="t on">Put idle tabs to sleep<i>On</i></div>
-          <div class="t">Account required<i>Off</i></div>
-          <div class="t on">Reopen tabs from last time<i>On</i></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="gutter">
-    <div class="wrap lead">
-      <h2>Made for your keyboard</h2>
-      <div class="keys">
-        <span><kbd>⌘</kbd><kbd>T</kbd> New tab</span>
-        <span><kbd>⌘</kbd><kbd>L</kbd> Address bar</span>
-        <span><kbd>⌘</kbd><kbd>S</kbd> Hide sidebar</span>
-        <span><kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> Pin a tab</span>
-        <span><kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd> Close the others</span>
-        <span><kbd>⌃</kbd><kbd>⌘</kbd><kbd>=</kbd> Split view</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="gutter closing" id="download">
-    <h2>Ready for a calmer web?</h2>
-    <a class="download" href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">
-      Download Pane for free
-      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v10M3.5 8.5 8 13l4.5-4.5"/></svg>
-    </a>
-    <p class="avail">For macOS 26 Tahoe on Apple silicon</p>
-    <div class="install">
-      <p><b>Drag it in</b>Open Pane.dmg and drag Pane into your Applications folder.</p>
-      <p><b>Open it once</b>Right-click Pane and choose Open. macOS asks the first time, because Pane isn't from the App Store.</p>
-      <p><b>Say hello</b>A short welcome shows you around. Updates arrive inside the app after that.</p>
-    </div>
-  </section>
-</main>
-
-<footer class="gutter">
-  <div class="wrap cols">
-    <div><h4>Product</h4><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">Download</a></div>
-    <div><h4>Updates</h4><a href="https://github.com/nategoyco/browser-updates/releases">What's New</a><a href="https://github.com/nategoyco/browser-updates/releases">All releases</a></div>
-    <div><h4>Requires</h4><span>macOS 26 Tahoe</span><span>Apple silicon</span></div>
-    <div><h4>Pane</h4><span>© 2026</span><span>Made on a Mac</span></div>
-  </div>
-</footer>
-
 <script>
-  // The walkthrough: choosing an idea swaps the picture beside it.
-  const steps = [...document.querySelectorAll('.step')];
-  const shot = document.getElementById('walk-img');
-  steps.forEach(step => step.addEventListener('click', () => {
-    steps.forEach(s => s.setAttribute('aria-selected', String(s === step)));
-    shot.src = step.dataset.img;
-    shot.alt = step.dataset.alt;
-  }));
-  // The privacy switches drift forever: repeat the list once so the loop is seamless.
-  const drift = document.getElementById('drift');
-  drift.innerHTML += drift.innerHTML;
+(function () {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero: the address bar drops from the bar and autofills, over and over.
+  const drop = document.getElementById('drop'), typed = document.getElementById('typed'),
+        ghost = document.getElementById('ghost'), sw = document.getElementById('switch'), result = document.getElementById('result');
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  async function loop() {
+    while (true) {
+      await sleep(1800);
+      drop.classList.add('open');
+      typed.textContent = ''; ghost.textContent = ''; sw.hidden = true; result.hidden = true;
+      await sleep(500);
+      for (const ch of 'ap') { typed.textContent += ch; await sleep(160); }
+      ghost.textContent = 'ple.com'; sw.hidden = false; result.hidden = false;
+      await sleep(2600);
+      drop.classList.remove('open');
+      await sleep(900);
+    }
+  }
+  if (!reduce) loop(); else { drop.classList.add('open'); typed.textContent = 'ap'; ghost.textContent = 'ple.com'; sw.hidden = false; result.hidden = false; }
+
+  // Hero: the bar and page follow the site's color.
+  const sites = [
+    ['ischia.travel', 'The Geography of Ischia', '#DCE8F3', '#1C1B1F'],
+    ['newyorker.com', 'Fiction', '#F4E7C8', '#1C1B1F'],
+    ['youtube.com', 'Mastering Squid', '#0F0F10', '#F3F0EC'],
+  ];
+  let i = 0;
+  const bar = document.getElementById('bar'), page = document.getElementById('page');
+  function paint() {
+    const [s, t, bg, fg] = sites[i];
+    document.getElementById('site').textContent = s;
+    document.getElementById('ptitle').textContent = t;
+    for (const el of [bar, page, drop]) { el.style.background = bg; el.style.color = fg; }
+  }
+  if (!reduce) setInterval(() => { if (!drop.classList.contains('open')) { i = (i + 1) % sites.length; paint(); } }, 2700);
+
+  // Tidy demo.
+  const tidy = document.getElementById('tidy'), messy = document.getElementById('messy'), tidied = document.getElementById('tidied');
+  tidy.addEventListener('click', () => {
+    const done = !tidied.hidden;
+    tidied.hidden = done; messy.hidden = !done;
+    tidy.textContent = done ? '✦ Tidy' : '↺ Undo';
+  });
+
+  // Space colors.
+  const pad = document.getElementById('pad');
+  const swatches = [...document.querySelectorAll('.swatch')];
+  function pick(b) {
+    swatches.forEach(s => s.setAttribute('aria-pressed', String(s === b)));
+    pad.style.background = `linear-gradient(135deg, ${b.dataset.a}, ${b.dataset.b})`;
+  }
+  swatches.forEach(b => b.addEventListener('click', () => pick(b)));
+  pick(swatches[0]);
+})();
 </script>
+
 </body>
 </html>
