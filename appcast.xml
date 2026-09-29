@@ -3,6 +3,20 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.0.6</title>
+            <pubDate>Tue, 29 Sep 2026 00:42:23 -0400</pubDate>
+            <sparkle:version>7</sparkle:version>
+            <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.0.6</h3>
+<ul>
+<li>When the sidebar is hidden, the pop-up sidebar now slides smoothly back out when your mouse leaves it.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.6/Pane-1.0.6.zip" length="3204033" type="application/octet-stream" sparkle:edSignature="lgQ/nBLah/ZlxnA/14zeNoExuMBimJTji2weMKiIcnhdXy8Qg9kSzseAKN8liAqTn6SvDFChZ8svuVuXp8alAw=="/>
+        </item>
+        <item>
             <title>1.0.5</title>
             <pubDate>Tue, 29 Sep 2026 00:38:13 -0400</pubDate>
             <sparkle:version>6</sparkle:version>
@@ -31,22 +45,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.4/Pane-1.0.4.zip" length="3190903" type="application/octet-stream" sparkle:edSignature="AemiDCSZzFYqKhgDA0gUeDPgT539ZPSiiJMJYwhE5ha/IPDi+KZY2E1o2fTLWLGsKwmYixG7TkNc5WcCq6NRBg=="/>
-        </item>
-        <item>
-            <title>1.0.3</title>
-            <pubDate>Tue, 29 Sep 2026 00:27:14 -0400</pubDate>
-            <sparkle:version>4</sparkle:version>
-            <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.0.3 — Hello, Pane</h3>
-<ul>
-<li>The browser has a name: Pane. You'll see it in the menu bar, Dock and app switcher.</li>
-<li>Your tabs, spaces, history, bookmarks and settings carry over as they are.</li>
-<li>Tip: rename the app in your Applications folder to “Pane” so Finder and Spotlight match.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.3/Pane-1.0.3.zip" length="2986951" type="application/octet-stream" sparkle:edSignature="18BtwvAjf44/Lmz23WdHIC/Ei1AJASOhKSagMNZUBBAw7O+QhlqrWXq3xC/Im9nnaG9no4UgLBRsMOG6fl8ICA=="/>
         </item>
     </channel>
 </rss>
