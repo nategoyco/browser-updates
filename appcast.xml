@@ -3,56 +3,35 @@
     <channel>
         <title>Pane</title>
         <item>
-            <title>1.1.0</title>
-            <pubDate>Tue, 29 Sep 2026 01:34:13 -0400</pubDate>
-            <sparkle:version>12</sparkle:version>
-            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <title>1.1.2</title>
+            <pubDate>Tue, 29 Sep 2026 10:36:55 -0400</pubDate>
+            <sparkle:version>14</sparkle:version>
+            <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1 — The essentials</h3>
+            <description><![CDATA[<h3>1.1.2 — Address bar that drops down</h3>
 <ul>
-<li>Ad and tracker blocking, on by default. Pause it per site from the Page menu or by typing “pause ads”.</li>
-<li>Leave a tab while a video plays and it floats in picture in picture; come back to put it back.</li>
-<li>Separate logins per space: click a space's icon and turn on Separate logins.</li>
-<li>Import bookmarks and history from Dia, Arc, Chrome, Safari, Brave or Edge (Settings › Privacy).</li>
+<li>Click anywhere on the top bar's address to edit it. The address bar drops straight down from the bar, in the bar's own color.</li>
+<li>It lines up with where the address starts and is as wide as the bar's address area.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.0/Pane-1.1.0.zip" length="3427086" type="application/octet-stream" sparkle:edSignature="Kh7nBPdE2Pizs3I23d5/2Tyg3Pd6WAo9LG4/U+/8rqpdIp+SV10y9Q8lsORC27eXA50pkKDovaKtwBdtQGiYAw=="/>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.2/Pane-1.1.2.zip" length="3465703" type="application/octet-stream" sparkle:edSignature="zwOTjssqbPs+XCPwgMeFs0x1b2ys7D+IZWHga/e0b2fVU7Shp3FIdgCLux5dR65+sVaz4+1LCRjnnpwBKUv1Ag=="/>
         </item>
         <item>
-            <title>1.0.10</title>
-            <pubDate>Tue, 29 Sep 2026 01:18:29 -0400</pubDate>
-            <sparkle:version>11</sparkle:version>
-            <sparkle:shortVersionString>1.0.10</sparkle:shortVersionString>
+            <title>1.1.1</title>
+            <pubDate>Tue, 29 Sep 2026 10:13:54 -0400</pubDate>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.0.10 — A calmer address bar</h3>
+            <description><![CDATA[<h3>1.1.1 — A new top bar</h3>
 <ul>
-<li>Clicking the address shows just the address. ⌘T shows a few recent tabs.</li>
-<li>While typing, only real matches appear — open tabs, a couple of bookmarks and history items, and search.</li>
-<li>Actions appear only when you type them ("zoom", "pdf", "tidy"…). Type &gt; to see them all.</li>
+<li>A Dia-style bar above the page: sidebar, back, forward and reload, and the site and page title. Click the title to edit the address.</li>
+<li>With the sidebar hidden, the window buttons move into the bar.</li>
+<li>Prefer the old look? Settings › Appearance › Top of the page › Minimal line.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.10/Pane-1.0.10.zip" length="3358360" type="application/octet-stream" sparkle:edSignature="W99w41wZn+8TrtctDUD2flXmmn8ujhtmINMxCAP5CWyePPN4ek10wAzSiz5BDs1/QAMgXpLd/Hb2VBbmNpN8Aw=="/>
-        </item>
-        <item>
-            <title>1.0.9</title>
-            <pubDate>Tue, 29 Sep 2026 01:13:22 -0400</pubDate>
-            <sparkle:version>10</sparkle:version>
-            <sparkle:shortVersionString>1.0.9</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.0.9 — Pinned tabs, folders and Tidy</h3>
-<ul>
-<li>Pinned tabs for each space, above a divider (⇧⌘P). They're never archived, and closing one sends it back to its page.</li>
-<li>Folders, in Pinned or Today: right-click a tab › Add to Folder. Click to open or close.</li>
-<li>Drag tabs and folders to reorder, into folders, or across the divider to pin and unpin.</li>
-<li>Tidy: one click groups your tabs into folders by kind of site, with Undo.</li>
-<li>The icons shared by every space are now called Favorites.</li>
-<li>No more error beep when using arrow keys on sites like YouTube.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.9/Pane-1.0.9.zip" length="3350418" type="application/octet-stream" sparkle:edSignature="uk6MSPHJAXbM2Jx6bFDTcfLmphCOi81AFJ+kbnCUoySn5ifmPHw+21l5ZvQPWjGwlJvg/MIC1wxyp0jIYfdHAw=="/>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.1/Pane-1.1.1.zip" length="3452170" type="application/octet-stream" sparkle:edSignature="+PNoG8clTtP7CzP5vfT+ZYvPIgX1qOWex2ZMk3bDzF8rd7y9JC7zEcaio7kcfXFs9/o/fQhZCZaPUr8kAVpZCA=="/>
         </item>
     </channel>
 </rss>
