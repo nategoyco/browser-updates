@@ -3,6 +3,23 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.0</title>
+            <pubDate>Tue, 29 Sep 2026 01:34:13 -0400</pubDate>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1 — The essentials</h3>
+<ul>
+<li>Ad and tracker blocking, on by default. Pause it per site from the Page menu or by typing “pause ads”.</li>
+<li>Leave a tab while a video plays and it floats in picture in picture; come back to put it back.</li>
+<li>Separate logins per space: click a space's icon and turn on Separate logins.</li>
+<li>Import bookmarks and history from Dia, Arc, Chrome, Safari, Brave or Edge (Settings › Privacy).</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.0/Pane-1.1.0.zip" length="3427086" type="application/octet-stream" sparkle:edSignature="Kh7nBPdE2Pizs3I23d5/2Tyg3Pd6WAo9LG4/U+/8rqpdIp+SV10y9Q8lsORC27eXA50pkKDovaKtwBdtQGiYAw=="/>
+        </item>
+        <item>
             <title>1.0.10</title>
             <pubDate>Tue, 29 Sep 2026 01:18:29 -0400</pubDate>
             <sparkle:version>11</sparkle:version>
@@ -36,22 +53,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.9/Pane-1.0.9.zip" length="3350418" type="application/octet-stream" sparkle:edSignature="uk6MSPHJAXbM2Jx6bFDTcfLmphCOi81AFJ+kbnCUoySn5ifmPHw+21l5ZvQPWjGwlJvg/MIC1wxyp0jIYfdHAw=="/>
-        </item>
-        <item>
-            <title>1.0.8</title>
-            <pubDate>Tue, 29 Sep 2026 00:56:24 -0400</pubDate>
-            <sparkle:version>9</sparkle:version>
-            <sparkle:shortVersionString>1.0.8</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.0.8 — Autofill</h3>
-<ul>
-<li>The address bar completes as you type, from your open tabs, bookmarks and the sites you visit most. Press Tab or → to take it.</li>
-<li>If the site is already open, Return switches to that tab (even in another space) instead of opening a duplicate.</li>
-<li>Backspace stops the completion, so you can search for exactly what you typed.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.8/Pane-1.0.8.zip" length="3260050" type="application/octet-stream" sparkle:edSignature="D8lpQLTusSw3lv4mJBbznizzNP+YFcZC/bzHuApAHQmYsOxcYD8OlyLkLzIeMe3QjjAMXaE+6BGzoT/15QjRAQ=="/>
         </item>
     </channel>
 </rss>
