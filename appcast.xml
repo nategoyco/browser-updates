@@ -3,6 +3,23 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.0.7</title>
+            <pubDate>Tue, 29 Sep 2026 00:50:50 -0400</pubDate>
+            <sparkle:version>8</sparkle:version>
+            <sparkle:shortVersionString>1.0.7</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.0.7 — Faster, and your colors</h3>
+<ul>
+<li>Custom space colors: click the icon next to a space's name and pick colors on the new color pad. Add up to three for a gradient, and set how strongly they show.</li>
+<li>Tabs you haven't looked at in 10 minutes now sleep, freeing memory and battery. They reload when you click them.</li>
+<li>The moving background uses less power and pauses when Pane is in the background.</li>
+<li>Pages appear a little sooner, and saving your tabs never slows down typing or scrolling.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.7/Pane-1.0.7.zip" length="3243153" type="application/octet-stream" sparkle:edSignature="+0yGA0ez/zoUVr5w2Fa4QJZMaAL2aSYcCBA2JJTJmGjm5/IIYVzjoE4lVuqTaodshq/7Syre57EGQ1P2brO/BA=="/>
+        </item>
+        <item>
             <title>1.0.6</title>
             <pubDate>Tue, 29 Sep 2026 00:42:23 -0400</pubDate>
             <sparkle:version>7</sparkle:version>
@@ -31,20 +48,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.5/Pane-1.0.5.zip" length="3201654" type="application/octet-stream" sparkle:edSignature="+FrQOxxzxQfi35JrntOMl/O3yZ901+GyfQUZqlwHVp445wzRiS+hzux4ve0SwRSj/nJAcvAVCdmA+PHNWS57Dw=="/>
-        </item>
-        <item>
-            <title>1.0.4</title>
-            <pubDate>Tue, 29 Sep 2026 00:31:21 -0400</pubDate>
-            <sparkle:version>5</sparkle:version>
-            <sparkle:shortVersionString>1.0.4</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.0.4 — New icon</h3>
-<ul>
-<li>A redesigned Pane icon: deep graphite with a warm ivory page, so it stands out in the Dock.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.4/Pane-1.0.4.zip" length="3190903" type="application/octet-stream" sparkle:edSignature="AemiDCSZzFYqKhgDA0gUeDPgT539ZPSiiJMJYwhE5ha/IPDi+KZY2E1o2fTLWLGsKwmYixG7TkNc5WcCq6NRBg=="/>
         </item>
     </channel>
 </rss>
