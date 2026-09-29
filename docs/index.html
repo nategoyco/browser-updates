@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pane — the calm browser for Mac</title>
+<meta name="description" content="Pane is a calm, fast browser for Mac. Tabs that tidy themselves, an address bar that stays out of the way, and spaces with their own colors and logins.">
+<meta property="og:title" content="Pane — the calm browser for Mac">
+<meta property="og:description" content="Tabs that tidy themselves, an address bar that stays out of the way, and spaces with their own colors and logins.">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="icon" href="img/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* One warm, light world like Dia's: an off-white page, a soft painted hero with a
+   huge outlined wordmark behind a real screenshot, a floating pill menu, and a
+   download button that stays with you. Serif for voice, sans for everything else. */
+:root {
+  --paper: #F7F5F0;
+  --white: #FFFFFF;
+  --ink: #1C1B1F;
+  --ink-2: #5F5B64;
+  --ink-3: #9A96A0;
+  --rule: #E6E2DA;
+  --peach: #F6C9A6;
+  --rose: #EDB9CC;
+  --butter: #F8E6A6;
+  --lilac: #D7C2EE;
+  --serif: "Newsreader", "Iowan Old Style", "Palatino", Georgia, serif;
+  --sans: "Geist", -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.55 var(--sans); -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.gutter { padding-inline: 20px; }
+.wrap { max-width: 1120px; margin-inline: auto; }
+
+/* Floating pill menu */
+.menu { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 14px); left: 50%; transform: translateX(-50%); z-index: 20;
+  display: flex; align-items: center; gap: 4px; padding: 5px 6px; background: rgba(255,255,255,.82); backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(28,27,31,.06); border-radius: 12px; box-shadow: 0 6px 24px -12px rgba(28,27,31,.25); }
+.menu img { width: 26px; height: 26px; border-radius: 7px; }
+.menu a { text-decoration: none; font-size: 13.5px; font-weight: 500; padding: 5px 10px; border-radius: 8px; color: var(--ink); }
+.menu a:hover { background: rgba(28,27,31,.05); }
+.menu .home { padding: 2px 6px 2px 2px; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; padding-top: calc(env(safe-area-inset-top, 0px) + 110px); background: var(--paper); }
+.paint { position: absolute; inset: 0 0 18% 0; pointer-events: none;
+  background:
+    radial-gradient(38% 50% at 18% 30%, var(--butter) 0%, transparent 70%),
+    radial-gradient(40% 55% at 48% 18%, var(--peach) 0%, transparent 72%),
+    radial-gradient(34% 50% at 82% 28%, var(--lilac) 0%, transparent 70%),
+    radial-gradient(40% 45% at 70% 70%, var(--rose) 0%, transparent 72%),
+    linear-gradient(180deg, #F3D9C6, #F2DCD8 60%, var(--paper));
+  filter: blur(6px); }
+.tagline { position: relative; text-align: center; font: 300 clamp(28px, 4.4vw, 50px)/1.08 var(--serif); letter-spacing: -.01em; color: #fff;
+  text-shadow: 0 1px 20px rgba(160,90,70,.25); }
+.wordmark { position: relative; text-align: center; font: italic 300 clamp(170px, 30vw, 430px)/.8 var(--serif); letter-spacing: -.035em;
+  color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,.9); margin-top: 6px; user-select: none; }
+.shot { position: relative; z-index: 1; max-width: 1080px; margin: clamp(-150px, -12vw, -60px) auto 0; }
+.shot img { border-radius: 14px; box-shadow: 0 2px 0 rgba(255,255,255,.6) inset, 0 40px 80px -30px rgba(90,50,60,.45), 0 0 0 1px rgba(28,27,31,.08); }
+.arc { position: relative; z-index: 2; height: 120px; margin-top: -90px; background: var(--paper); border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+
+/* The download button that stays with you */
+.dock { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom, 0px) + 18px); z-index: 20; text-align: center; }
+.download { display: inline-flex; align-items: center; gap: 10px; background: var(--ink); color: #fff; text-decoration: none; font: 500 15px var(--sans);
+  padding: 13px 28px; border-radius: 999px; box-shadow: 0 12px 30px -12px rgba(28,27,31,.6); transition: transform .2s ease; white-space: nowrap; }
+.download:hover { transform: translateY(-1px); }
+.download svg { width: 14px; height: 14px; }
+.avail { margin-top: 8px; font-size: 12px; color: var(--ink-3); }
+.dock .avail { display: none; }
+
+/* Sections */
+section { padding-block: 96px; }
+.lead { text-align: center; }
+.lead h2 { font: 300 clamp(38px, 5.4vw, 64px)/1.04 var(--serif); letter-spacing: -.02em; }
+.lead p { margin: 18px auto 0; max-width: 54ch; color: var(--ink-2); font-size: 17px; }
+
+/* Walkthrough: pick an idea on the left, see it on the right */
+.walk { display: grid; grid-template-columns: minmax(0, 330px) minmax(0, 1fr); gap: 56px; align-items: center; margin-top: 64px; }
+@media (max-width: 880px) { .walk { grid-template-columns: 1fr; gap: 28px; } }
+.steps { display: grid; gap: 26px; }
+.step { border: 0; background: none; text-align: left; padding: 0 0 0 20px; border-left: 1.5px solid var(--rule); cursor: pointer; font: inherit; color: var(--ink-3); transition: color .25s, border-color .25s; }
+.step .n { font: 400 11px var(--mono); letter-spacing: .06em; }
+.step h3 { font: 400 25px/1.2 var(--serif); margin-top: 6px; color: inherit; }
+.step p { margin-top: 8px; font-size: 14.5px; color: var(--ink-2); display: none; }
+.step[aria-selected="true"] { border-color: var(--ink); color: var(--ink); }
+.step[aria-selected="true"] p { display: block; }
+.frame { border-radius: 16px; overflow: hidden; background: var(--white); border: 1px solid var(--rule); box-shadow: 0 30px 60px -40px rgba(28,27,31,.35); }
+.frame img { width: 100%; }
+
+/* Built for how you browse */
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 60px; }
+@media (max-width: 760px) { .cards { grid-template-columns: 1fr; } }
+.card { border: 1px solid var(--rule); border-radius: 18px; background: var(--white); padding: 26px 26px 0; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.label { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.card p { margin-top: 10px; font-size: 16px; color: var(--ink-2); max-width: 46ch; }
+.card .art { margin-top: 26px; flex: 1; display: flex; align-items: flex-end; justify-content: center; min-height: 190px; }
+
+/* Card art: small, quiet, drawn from the app */
+.glance { width: 78%; background: #F2EFEA; border-radius: 14px 14px 0 0; padding: 12px 12px 0; box-shadow: 0 -1px 0 var(--rule) inset; }
+.glance .bar { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-2); padding: 0 4px 10px; }
+.glance .bar b { font-weight: 600; color: var(--ink); }
+.glance .keep { background: var(--ink); color: #fff; font-size: 11px; padding: 4px 10px; border-radius: 999px; }
+.glance .page { height: 120px; background: var(--white); border-radius: 10px 10px 0 0; padding: 16px; display: grid; gap: 8px; align-content: start; }
+.line { height: 8px; border-radius: 4px; background: #ECE8E2; }
+.split { width: 82%; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: #F2EFEA; border-radius: 14px 14px 0 0; padding: 8px 8px 0; }
+.split div { background: var(--white); height: 150px; border-radius: 9px 9px 0 0; padding: 12px; display: grid; gap: 7px; align-content: start; }
+.spaces { display: flex; gap: 12px; margin-bottom: 26px; }
+.space { width: 118px; height: 150px; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; font: 500 13px var(--sans); }
+.space small { font: 400 11px var(--mono); opacity: .6; }
+.pip { position: relative; width: 82%; height: 170px; background: #F2EFEA; border-radius: 14px 14px 0 0; }
+.pip .float { position: absolute; right: 16px; top: 18px; width: 46%; aspect-ratio: 16/9; border-radius: 10px; background: linear-gradient(135deg, #3A2E3F, #1C1B1F); box-shadow: 0 16px 30px -12px rgba(0,0,0,.45); display: grid; place-items: center; color: #fff; font-size: 20px; }
+.save { width: 64%; background: var(--white); border: 1px solid var(--rule); border-radius: 12px; padding: 6px; margin-bottom: 28px; box-shadow: 0 20px 40px -24px rgba(28,27,31,.4); font-size: 13.5px; }
+.save div { padding: 7px 10px; border-radius: 7px; }
+.save .on { background: #3F7BF3; color: #fff; }
+.save hr { border: 0; height: 1px; background: var(--rule); margin: 5px 6px; }
+.imports { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 36px; max-width: 360px; }
+.imports span { font-size: 13.5px; padding: 7px 13px; border-radius: 999px; background: #F2EFEA; }
+
+/* Privacy: a slow drift of switches, all set the calm way */
+.privacy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+@media (max-width: 860px) { .privacy { grid-template-columns: 1fr; } }
+.privacy h2 { font: 300 clamp(38px, 5vw, 58px)/1.04 var(--serif); letter-spacing: -.02em; }
+.privacy h2 em { font-style: italic; }
+.privacy p { margin-top: 18px; color: var(--ink-2); max-width: 46ch; }
+.toggles { height: 340px; overflow: hidden; border-radius: 18px; background: var(--white); border: 1px solid var(--rule); position: relative;
+  -webkit-mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent); mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent); }
+.drift { display: grid; gap: 10px; padding: 16px; animation: drift 26s linear infinite; }
+@keyframes drift { to { transform: translateY(-50%); } }
+.t { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 12px; background: var(--paper); font-size: 15px; }
+.t i { font-style: normal; font-size: 13px; color: var(--ink-3); display: flex; align-items: center; gap: 10px; }
+.t i::after { content: ""; width: 34px; height: 20px; border-radius: 999px; background: #D9D5CE; box-shadow: inset -14px 0 0 2px #D9D5CE, inset 0 0 0 2px #D9D5CE; background: #fff; }
+.t.on i::after { background: #fff; box-shadow: inset 14px 0 0 2px var(--ink), inset 0 0 0 2px var(--ink); }
+
+/* Keys */
+.keys { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; margin-top: 36px; color: var(--ink-2); font-size: 15px; }
+.keys span { display: inline-flex; align-items: center; gap: 8px; }
+kbd { font: 400 12.5px var(--mono); min-width: 24px; height: 24px; padding: 0 6px; display: inline-grid; place-items: center; border-radius: 6px; background: var(--white); border: 1px solid var(--rule); box-shadow: 0 1px 0 var(--rule); color: var(--ink); }
+
+/* Closing */
+.closing { text-align: center; padding-block: 120px 150px; }
+.closing h2 { font: 300 clamp(44px, 7vw, 84px)/1 var(--serif); letter-spacing: -.02em; }
+.closing .download { margin-top: 34px; }
+.install { margin: 44px auto 0; max-width: 760px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; text-align: left; font-size: 14.5px; color: var(--ink-2); }
+@media (max-width: 700px) { .install { grid-template-columns: 1fr; } }
+.install b { display: block; font: 400 19px var(--serif); color: var(--ink); margin-bottom: 4px; }
+
+footer { border-top: 1px solid var(--rule); padding-block: 48px 120px; }
+.cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 700px) { .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cols h4 { margin: 0 0 12px; font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.cols a, .cols span { display: block; font-size: 14px; text-decoration: none; margin-bottom: 8px; color: var(--ink-2); }
+.cols a:hover { color: var(--ink); }
+
+@media (max-width: 560px) { .menu a.hide-sm { display: none; } .wordmark { -webkit-text-stroke-width: 1.4px; } }
+@media (prefers-reduced-motion: reduce) { .drift { animation: none; } * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<nav class="menu" aria-label="Pane">
+  <a class="home" href="#top" aria-label="Pane home"><img src="img/icon.png" alt=""></a>
+  <a href="#features">Features</a>
+  <a class="hide-sm" href="#privacy">Privacy</a>
+  <a href="https://github.com/nategoyco/browser-updates/releases">What's New</a>
+</nav>
+
+<header class="hero gutter" id="top">
+  <div class="paint" aria-hidden="true"></div>
+  <p class="tagline">A calmer browser. A calmer day.</p>
+  <div class="wordmark" aria-hidden="true">Pane</div>
+  <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Pane, the calm browser for Mac</h1>
+  <div class="shot"><img src="img/hero.jpg" width="1389" height="868" alt="Pane on a Mac: a sidebar with Gmail, Calendar and Spotify tiles, an Italy trip folder, and a Wikipedia article about Ischia."></div>
+  <div class="arc" aria-hidden="true"></div>
+</header>
+
+<div class="dock">
+  <a class="download" href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">
+    Download Pane for free
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v10M3.5 8.5 8 13l4.5-4.5"/></svg>
+  </a>
+</div>
+
+<main>
+  <section class="gutter" id="features">
+    <div class="wrap">
+      <div class="lead">
+        <h2>Pane stays out of your way</h2>
+        <p>Most of a browser is things you don't need to see. Pane keeps them tucked away until you reach for them, so the page gets the whole window.</p>
+      </div>
+      <div class="walk">
+        <div class="steps" role="tablist" aria-label="What Pane does">
+          <button class="step" role="tab" aria-selected="true" data-img="img/address.jpg" data-alt="The address bar dropping down from the top bar, with github.com filled in and a Switch to Tab label.">
+            <span class="n">01</span>
+            <h3>An address bar that comes when you call</h3>
+            <p>Click the top of the page and it drops straight down. Type two letters and Pane finishes the address, and if that site's already open, it takes you to the tab instead.</p>
+          </button>
+          <button class="step" role="tab" aria-selected="false" data-img="img/tint.jpg" data-alt="Pane showing GitHub, with the top bar tinted the same dark navy as the site.">
+            <span class="n">02</span>
+            <h3>The bar takes on each site's color</h3>
+            <p>Pane reads the color at the top of every page and tints the bar above it to match, with text that stays readable. You notice the site, not the browser.</p>
+          </button>
+          <button class="step" role="tab" aria-selected="false" data-img="img/hero.jpg" data-alt="Pane's sidebar with pinned tiles, a folder and everyday tabs.">
+            <span class="n">03</span>
+            <h3>Tabs that look after themselves</h3>
+            <p>Pin the sites you live in as tiles. Everything else sorts into folders with one click on Tidy, and tabs you haven't opened in a while go to sleep.</p>
+          </button>
+        </div>
+        <div class="frame"><img id="walk-img" src="img/address.jpg" width="1389" height="868" alt="The address bar dropping down from the top bar, with github.com filled in and a Switch to Tab label."></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gutter">
+    <div class="wrap">
+      <div class="lead"><h2>Built for how you browse</h2></div>
+      <div class="cards">
+        <div class="card">
+          <span class="label">Spaces</span>
+          <p>Keep work, school and home apart. Each space has its own tabs, its own color, and if you like, its own logins, so you can be signed into two accounts at once.</p>
+          <div class="art">
+            <div class="spaces">
+              <div class="space" style="background:#F1DDD0">Personal<small>Clay · 7 tabs</small></div>
+              <div class="space" style="background:#DCE6DA">Work<small>Sage · own logins</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <span class="label">Tidy tabs</span>
+          <p>Drag tabs to reorder them, drop them into folders, or pull them to the top to pin. Tidy groups the rest by kind of site, and anything you stop using moves to the archive.</p>
+          <div class="art" style="min-height:230px"><img src="img/sidebar.jpg" alt="Pane's sidebar up close" style="width:52%;border-radius:14px 14px 0 0;object-fit:cover;object-position:top;height:230px"></div>
+        </div>
+        <div class="card">
+          <span class="label">Glance</span>
+          <p>Links from Mail, Slack or a pinned Gmail open in a small window first. Read and close it, or keep the page with ⌘ Return.</p>
+          <div class="art">
+            <div class="glance">
+              <div class="bar"><b>nytimes.com</b><span class="keep">Open in Pane</span></div>
+              <div class="page"><div class="line" style="width:70%;height:12px"></div><div class="line"></div><div class="line" style="width:86%"></div><div class="line" style="width:60%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <span class="label">Picture in picture</span>
+          <p>Switch away from a video playing with sound and it floats in its own window. Muted clips and previews stay where they are.</p>
+          <div class="art"><div class="pip"><div class="float">▶</div></div></div>
+        </div>
+        <div class="card">
+          <span class="label">Split view</span>
+          <p>Two pages side by side in one window. Drag the divider to give one more room.</p>
+          <div class="art"><div class="split"><div><div class="line" style="width:60%"></div><div class="line"></div><div class="line" style="width:80%"></div></div><div><div class="line" style="width:50%"></div><div class="line"></div><div class="line" style="width:70%"></div></div></div></div>
+        </div>
+        <div class="card">
+          <span class="label">Save anything</span>
+          <p>Right-click to save a video, image, link or the whole page, straight to wherever you choose.</p>
+          <div class="art">
+            <div class="save"><div>Open Link in New Tab</div><div>Copy Link</div><hr><div class="on">Save Video As…</div><div>Save Image As…</div><hr><div>Save Page As…</div></div>
+          </div>
+        </div>
+        <div class="card">
+          <span class="label">Designer tools</span>
+          <p>An eyedropper that copies the hex of anything on screen, and a font inspector that shows a page's type as you hover.</p>
+          <div class="art"><div class="imports" style="max-width:none"><span style="font-family:var(--mono)">#F6C9A6 copied</span><span>Newsreader · 300 · 64px</span></div></div>
+        </div>
+        <div class="card">
+          <span class="label">Bring your stuff</span>
+          <p>Import bookmarks and history from the browser you use now, in one click from Settings.</p>
+          <div class="art"><div class="imports"><span>Dia</span><span>Arc</span><span>Chrome</span><span>Safari</span><span>Brave</span><span>Edge</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gutter" id="privacy">
+    <div class="wrap privacy">
+      <div>
+        <h2>Private by default,<br><em>quiet by design</em></h2>
+        <p>Ads and trackers are blocked before they load, inside the engine, so pages are faster too. Pane has no account, no analytics and nothing to sell. Your tabs and history stay on your Mac.</p>
+      </div>
+      <div class="toggles" aria-hidden="true">
+        <div class="drift" id="drift">
+          <div class="t on">Block ads<i>On</i></div>
+          <div class="t on">Block trackers<i>On</i></div>
+          <div class="t">Share usage data<i>Off</i></div>
+          <div class="t on">Separate logins per space<i>On</i></div>
+          <div class="t on">Put idle tabs to sleep<i>On</i></div>
+          <div class="t">Account required<i>Off</i></div>
+          <div class="t on">Reopen tabs from last time<i>On</i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gutter">
+    <div class="wrap lead">
+      <h2>Made for your keyboard</h2>
+      <div class="keys">
+        <span><kbd>⌘</kbd><kbd>T</kbd> New tab</span>
+        <span><kbd>⌘</kbd><kbd>L</kbd> Address bar</span>
+        <span><kbd>⌘</kbd><kbd>S</kbd> Hide sidebar</span>
+        <span><kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> Pin a tab</span>
+        <span><kbd>⇧</kbd><kbd>⌘</kbd><kbd>K</kbd> Close the others</span>
+        <span><kbd>⌃</kbd><kbd>⌘</kbd><kbd>=</kbd> Split view</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="gutter closing" id="download">
+    <h2>Ready for a calmer web?</h2>
+    <a class="download" href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">
+      Download Pane for free
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.5v10M3.5 8.5 8 13l4.5-4.5"/></svg>
+    </a>
+    <p class="avail">For macOS 26 Tahoe on Apple silicon</p>
+    <div class="install">
+      <p><b>Drag it in</b>Open Pane.dmg and drag Pane into your Applications folder.</p>
+      <p><b>Open it once</b>Right-click Pane and choose Open. macOS asks the first time, because Pane isn't from the App Store.</p>
+      <p><b>Say hello</b>A short welcome shows you around. Updates arrive inside the app after that.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="gutter">
+  <div class="wrap cols">
+    <div><h4>Product</h4><a href="#features">Features</a><a href="#privacy">Privacy</a><a href="https://github.com/nategoyco/browser-updates/releases/latest/download/Pane.dmg">Download</a></div>
+    <div><h4>Updates</h4><a href="https://github.com/nategoyco/browser-updates/releases">What's New</a><a href="https://github.com/nategoyco/browser-updates/releases">All releases</a></div>
+    <div><h4>Requires</h4><span>macOS 26 Tahoe</span><span>Apple silicon</span></div>
+    <div><h4>Pane</h4><span>© 2026</span><span>Made on a Mac</span></div>
+  </div>
+</footer>
+
+<script>
+  // The walkthrough: choosing an idea swaps the picture beside it.
+  const steps = [...document.querySelectorAll('.step')];
+  const shot = document.getElementById('walk-img');
+  steps.forEach(step => step.addEventListener('click', () => {
+    steps.forEach(s => s.setAttribute('aria-selected', String(s === step)));
+    shot.src = step.dataset.img;
+    shot.alt = step.dataset.alt;
+  }));
+  // The privacy switches drift forever: repeat the list once so the loop is seamless.
+  const drift = document.getElementById('drift');
+  drift.innerHTML += drift.innerHTML;
+</script>
+</body>
+</html>
