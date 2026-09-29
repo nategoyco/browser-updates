@@ -23,10 +23,10 @@
   --ink-2: #5F5B64;
   --ink-3: #9A96A0;
   --rule: #E6E2DA;
-  --peach: #F6C9A6;
-  --rose: #EDB9CC;
-  --butter: #F8E6A6;
-  --lilac: #D7C2EE;
+  --peach: #F2B48C;
+  --rose: #E9A6BF;
+  --butter: #F5DC8A;
+  --lilac: #CDB1EC;
   --serif: "Newsreader", "Iowan Old Style", "Palatino", Georgia, serif;
   --sans: "Geist", -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -60,12 +60,11 @@ p { margin: 0; }
     radial-gradient(40% 55% at 48% 18%, var(--peach) 0%, transparent 72%),
     radial-gradient(34% 50% at 82% 28%, var(--lilac) 0%, transparent 70%),
     radial-gradient(40% 45% at 70% 70%, var(--rose) 0%, transparent 72%),
-    linear-gradient(180deg, #F3D9C6, #F2DCD8 60%, var(--paper));
+    linear-gradient(180deg, #F0C9AE, #EFCBCB 60%, var(--paper));
   filter: blur(6px); }
-.tagline { position: relative; text-align: center; font: 300 clamp(28px, 4.4vw, 50px)/1.08 var(--serif); letter-spacing: -.01em; color: #fff;
-  text-shadow: 0 1px 20px rgba(160,90,70,.25); }
+.tagline { position: relative; z-index: 1; text-align: center; font: 300 clamp(28px, 4.4vw, 50px)/1.08 var(--serif); letter-spacing: -.01em; color: #3E2F31; }
 .wordmark { position: relative; text-align: center; font: italic 300 clamp(170px, 30vw, 430px)/.8 var(--serif); letter-spacing: -.035em;
-  color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,.9); margin-top: 6px; user-select: none; }
+  color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,.95); margin-top: clamp(28px, 5vw, 64px); user-select: none; }
 .shot { position: relative; z-index: 1; max-width: 1080px; margin: clamp(-150px, -12vw, -60px) auto 0; }
 .shot img { border-radius: 14px; box-shadow: 0 2px 0 rgba(255,255,255,.6) inset, 0 40px 80px -30px rgba(90,50,60,.45), 0 0 0 1px rgba(28,27,31,.08); }
 .arc { position: relative; z-index: 2; height: 120px; margin-top: -90px; background: var(--paper); border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
