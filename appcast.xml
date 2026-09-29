@@ -3,6 +3,25 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.0.9</title>
+            <pubDate>Tue, 29 Sep 2026 01:13:22 -0400</pubDate>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>1.0.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.0.9 — Pinned tabs, folders and Tidy</h3>
+<ul>
+<li>Pinned tabs for each space, above a divider (⇧⌘P). They're never archived, and closing one sends it back to its page.</li>
+<li>Folders, in Pinned or Today: right-click a tab › Add to Folder. Click to open or close.</li>
+<li>Drag tabs and folders to reorder, into folders, or across the divider to pin and unpin.</li>
+<li>Tidy: one click groups your tabs into folders by kind of site, with Undo.</li>
+<li>The icons shared by every space are now called Favorites.</li>
+<li>No more error beep when using arrow keys on sites like YouTube.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.9/Pane-1.0.9.zip" length="3350418" type="application/octet-stream" sparkle:edSignature="uk6MSPHJAXbM2Jx6bFDTcfLmphCOi81AFJ+kbnCUoySn5ifmPHw+21l5ZvQPWjGwlJvg/MIC1wxyp0jIYfdHAw=="/>
+        </item>
+        <item>
             <title>1.0.8</title>
             <pubDate>Tue, 29 Sep 2026 00:56:24 -0400</pubDate>
             <sparkle:version>9</sparkle:version>
@@ -34,20 +53,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.7/Pane-1.0.7.zip" length="3243153" type="application/octet-stream" sparkle:edSignature="+0yGA0ez/zoUVr5w2Fa4QJZMaAL2aSYcCBA2JJTJmGjm5/IIYVzjoE4lVuqTaodshq/7Syre57EGQ1P2brO/BA=="/>
-        </item>
-        <item>
-            <title>1.0.6</title>
-            <pubDate>Tue, 29 Sep 2026 00:42:23 -0400</pubDate>
-            <sparkle:version>7</sparkle:version>
-            <sparkle:shortVersionString>1.0.6</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.0.6</h3>
-<ul>
-<li>When the sidebar is hidden, the pop-up sidebar now slides smoothly back out when your mouse leaves it.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.0.6/Pane-1.0.6.zip" length="3204033" type="application/octet-stream" sparkle:edSignature="lgQ/nBLah/ZlxnA/14zeNoExuMBimJTji2weMKiIcnhdXy8Qg9kSzseAKN8liAqTn6SvDFChZ8svuVuXp8alAw=="/>
         </item>
     </channel>
 </rss>
