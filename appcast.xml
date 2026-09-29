@@ -3,6 +3,22 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.4</title>
+            <pubDate>Tue, 29 Sep 2026 11:03:27 -0400</pubDate>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>1.1.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.4 — Colors and tiles</h3>
+<ul>
+<li>The top bar takes on each site's color, with text that stays readable. Turn it off in Settings › Appearance.</li>
+<li>Pinned tabs are now big icon tiles, three across, like Dia.</li>
+<li>Dragging tabs is smoother: the list parts to make room where the tab will land. Drag a tab to the top to pin it.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.4/Pane-1.1.4.zip" length="3504768" type="application/octet-stream" sparkle:edSignature="cSzW3shdM2euzkdpxzA5zE/iB6x9Q8qyVbNJb1PK68qwhfdM2MJ8u3nVORlO7Vrrh0O/E3ybQazvqz10jN/uBQ=="/>
+        </item>
+        <item>
             <title>1.1.3</title>
             <pubDate>Tue, 29 Sep 2026 10:50:44 -0400</pubDate>
             <sparkle:version>15</sparkle:version>
@@ -31,22 +47,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.2/Pane-1.1.2.zip" length="3465703" type="application/octet-stream" sparkle:edSignature="zwOTjssqbPs+XCPwgMeFs0x1b2ys7D+IZWHga/e0b2fVU7Shp3FIdgCLux5dR65+sVaz4+1LCRjnnpwBKUv1Ag=="/>
-        </item>
-        <item>
-            <title>1.1.1</title>
-            <pubDate>Tue, 29 Sep 2026 10:13:54 -0400</pubDate>
-            <sparkle:version>13</sparkle:version>
-            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.1 — A new top bar</h3>
-<ul>
-<li>A Dia-style bar above the page: sidebar, back, forward and reload, and the site and page title. Click the title to edit the address.</li>
-<li>With the sidebar hidden, the window buttons move into the bar.</li>
-<li>Prefer the old look? Settings › Appearance › Top of the page › Minimal line.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.1/Pane-1.1.1.zip" length="3452170" type="application/octet-stream" sparkle:edSignature="+PNoG8clTtP7CzP5vfT+ZYvPIgX1qOWex2ZMk3bDzF8rd7y9JC7zEcaio7kcfXFs9/o/fQhZCZaPUr8kAVpZCA=="/>
         </item>
     </channel>
 </rss>
