@@ -3,6 +3,20 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.11</title>
+            <pubDate>Wed, 30 Sep 2026 18:31:05 -0400</pubDate>
+            <sparkle:version>23</sparkle:version>
+            <sparkle:shortVersionString>1.1.11</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.11 — Answers that flow</h3>
+<ul>
+<li>Ask's answers now flow in smoothly, word by word, each one fading and sharpening into place — and a gentle shimmer while it reads the page.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.11/Pane-1.1.11.zip" length="3907325" type="application/octet-stream" sparkle:edSignature="C3muz9lbhkADGiMr3Uk6aP7exLesUftWcTpAlJMcLFT4uIXGatIGYQufKalBe8nW0At4HR2Ca/Npsk2kKu2BCw=="/>
+        </item>
+        <item>
             <title>1.1.10</title>
             <pubDate>Wed, 30 Sep 2026 18:23:47 -0400</pubDate>
             <sparkle:version>22</sparkle:version>
@@ -36,21 +50,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.9/Pane-1.1.9.zip" length="3718550" type="application/octet-stream" sparkle:edSignature="GFwuQl0e+wjL5hhc5uoVL5KOShjrvtDE+oucrzVopmS5DpHUippPxMNKJLHJZULZTlss39jqdiDPlkTTLb6LBw=="/>
-        </item>
-        <item>
-            <title>1.1.8</title>
-            <pubDate>Wed, 30 Sep 2026 17:22:30 -0400</pubDate>
-            <sparkle:version>20</sparkle:version>
-            <sparkle:shortVersionString>1.1.8</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.8 — Snappier</h3>
-<ul>
-<li>Tabs you're not looking at now rest, like in Safari, so the tab you're on gets the whole machine — smoother scrolling, less battery. Switching back is still instant.</li>
-<li>Pages show up sooner: Pane now knows the moment a page first draws instead of checking for it.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.8/Pane-1.1.8.zip" length="3611098" type="application/octet-stream" sparkle:edSignature="DGCXsL0o5Jqr9pLwwICXGLc/ZpDKvS3jdLK0RAzpc9t2Is5BjSpUj5RfGYqoyRkVCG1lDr7TYknTeMw4Us48Dw=="/>
         </item>
     </channel>
 </rss>
