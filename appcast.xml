@@ -3,6 +3,21 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.12</title>
+            <pubDate>Wed, 30 Sep 2026 18:40:21 -0400</pubDate>
+            <sparkle:version>24</sparkle:version>
+            <sparkle:shortVersionString>1.1.12</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.12 — Clearer answers</h3>
+<ul>
+<li>Ask now answers the way Dia does: the answer first, then a few short points with bold labels, using the page's own names, numbers and dates.</li>
+<li>Bigger, easier-to-read text in the Ask panel, with more room to breathe.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.12/Pane-1.1.12.zip" length="3909621" type="application/octet-stream" sparkle:edSignature="S3re9p3HK4AJYu2cFvUxf9duZCz+rnZaykSbjLNoeMcX5HetMNCbKQmwFyK/QTeUmS4+vOrwm0rrbYX6kxPhDA=="/>
+        </item>
+        <item>
             <title>1.1.11</title>
             <pubDate>Wed, 30 Sep 2026 18:31:05 -0400</pubDate>
             <sparkle:version>23</sparkle:version>
@@ -33,23 +48,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.10/Pane-1.1.10.zip" length="3885398" type="application/octet-stream" sparkle:edSignature="/raxu4nnZwLr6mzIEs6aXyDRvzeUol0nFfGY9yDI4tevDMQj79ThnBpXij2LzG03M0RAYjsjL+1LvJ5hInCwAQ=="/>
-        </item>
-        <item>
-            <title>1.1.9</title>
-            <pubDate>Wed, 30 Sep 2026 17:43:22 -0400</pubDate>
-            <sparkle:version>21</sparkle:version>
-            <sparkle:shortVersionString>1.1.9</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.9 — Passwords, and a steadier Glance</h3>
-<ul>
-<li>A built-in password manager: Pane offers to save passwords when you sign in, suggests your saved logins right under the field (Touch ID to fill), and suggests strong passwords on sign-up forms. Passwords live in your Mac's Keychain. Manage them, or import a CSV from another browser, in Settings › Passwords.</li>
-<li>Closing a tab playing video now stops it right away — no more video carrying on or popping out in picture in picture after the tab is gone.</li>
-<li>Glance: closing it stops the page at once, moving a page to the browser is smoother, and downloads and Save As work there too.</li>
-<li>Closed tabs no longer keep running in the background, so Pane uses less memory over time.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.9/Pane-1.1.9.zip" length="3718550" type="application/octet-stream" sparkle:edSignature="GFwuQl0e+wjL5hhc5uoVL5KOShjrvtDE+oucrzVopmS5DpHUippPxMNKJLHJZULZTlss39jqdiDPlkTTLb6LBw=="/>
         </item>
     </channel>
 </rss>
