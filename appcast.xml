@@ -3,6 +3,23 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.9</title>
+            <pubDate>Wed, 30 Sep 2026 17:43:22 -0400</pubDate>
+            <sparkle:version>21</sparkle:version>
+            <sparkle:shortVersionString>1.1.9</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.9 — Passwords, and a steadier Glance</h3>
+<ul>
+<li>A built-in password manager: Pane offers to save passwords when you sign in, suggests your saved logins right under the field (Touch ID to fill), and suggests strong passwords on sign-up forms. Passwords live in your Mac's Keychain. Manage them, or import a CSV from another browser, in Settings › Passwords.</li>
+<li>Closing a tab playing video now stops it right away — no more video carrying on or popping out in picture in picture after the tab is gone.</li>
+<li>Glance: closing it stops the page at once, moving a page to the browser is smoother, and downloads and Save As work there too.</li>
+<li>Closed tabs no longer keep running in the background, so Pane uses less memory over time.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.9/Pane-1.1.9.zip" length="3718550" type="application/octet-stream" sparkle:edSignature="GFwuQl0e+wjL5hhc5uoVL5KOShjrvtDE+oucrzVopmS5DpHUippPxMNKJLHJZULZTlss39jqdiDPlkTTLb6LBw=="/>
+        </item>
+        <item>
             <title>1.1.8</title>
             <pubDate>Wed, 30 Sep 2026 17:22:30 -0400</pubDate>
             <sparkle:version>20</sparkle:version>
@@ -31,21 +48,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.7/Pane-1.1.7.zip" length="3605450" type="application/octet-stream" sparkle:edSignature="7A4ejHpiiZXHlT1k9mbml9oqbahNiU+uTbPzeZV7YBWXJIi9y5uiG6HPZBuOVIxTho7DE4rZm4crQwc2+9PNCw=="/>
-        </item>
-        <item>
-            <title>1.1.6</title>
-            <pubDate>Tue, 29 Sep 2026 11:29:45 -0400</pubDate>
-            <sparkle:version>18</sparkle:version>
-            <sparkle:shortVersionString>1.1.6</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.6 — Save As</h3>
-<ul>
-<li>Right-click a video, image or link to Save Video As…, Save Image As… or Save Link As…, or anywhere on a page to Save Page As….</li>
-<li>Videos that sites stream in pieces (like YouTube) can't be saved as a file — Pane tells you instead of failing quietly.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.6/Pane-1.1.6.zip" length="3519177" type="application/octet-stream" sparkle:edSignature="zwS9UbJhA1gbJ6gMj3aFQhAYJKc1irOW/slRkIajQudnVc+mN/bL4vWL1C1ZPZC6TK0xOafwunhTBTovKe35Bg=="/>
         </item>
     </channel>
 </rss>
