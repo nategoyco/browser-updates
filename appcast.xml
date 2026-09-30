@@ -3,6 +3,24 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.10</title>
+            <pubDate>Wed, 30 Sep 2026 18:23:47 -0400</pubDate>
+            <sparkle:version>22</sparkle:version>
+            <sparkle:shortVersionString>1.1.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.10 — Ask, Reader, Capture, and more</h3>
+<ul>
+<li><b>Ask this page</b> (⌘J): summarize a page or ask about it in a panel beside it. Runs on Apple's on-device model — free, and nothing leaves your Mac.</li>
+<li><b>Reader view</b> (⇧⌘R): just the article, cleanly set, without the clutter.</li>
+<li><b>Capture</b> (⇧⌘1): drag a box over any page to copy that part as an image.</li>
+<li><b>Link preview</b>: ⇧-click a link to peek at it over the page, then close it or keep it as a tab.</li>
+<li><b>Recent tabs</b> (⌃Tab): hold Control and tap Tab to flip between your most recent tabs, with previews. Next and previous tab are now ⇧⌘] and ⇧⌘[.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.10/Pane-1.1.10.zip" length="3885398" type="application/octet-stream" sparkle:edSignature="/raxu4nnZwLr6mzIEs6aXyDRvzeUol0nFfGY9yDI4tevDMQj79ThnBpXij2LzG03M0RAYjsjL+1LvJ5hInCwAQ=="/>
+        </item>
+        <item>
             <title>1.1.9</title>
             <pubDate>Wed, 30 Sep 2026 17:43:22 -0400</pubDate>
             <sparkle:version>21</sparkle:version>
@@ -33,21 +51,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.8/Pane-1.1.8.zip" length="3611098" type="application/octet-stream" sparkle:edSignature="DGCXsL0o5Jqr9pLwwICXGLc/ZpDKvS3jdLK0RAzpc9t2Is5BjSpUj5RfGYqoyRkVCG1lDr7TYknTeMw4Us48Dw=="/>
-        </item>
-        <item>
-            <title>1.1.7</title>
-            <pubDate>Tue, 29 Sep 2026 11:48:45 -0400</pubDate>
-            <sparkle:version>19</sparkle:version>
-            <sparkle:shortVersionString>1.1.7</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.7 — A new welcome, a new icon</h3>
-<ul>
-<li>A brand-new full-screen welcome: a living gradient that follows your pointer, colors you can try across the whole screen, and shortcuts you can press to learn. See it any time from Help › Show Welcome.</li>
-<li>A new app icon.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.7/Pane-1.1.7.zip" length="3605450" type="application/octet-stream" sparkle:edSignature="7A4ejHpiiZXHlT1k9mbml9oqbahNiU+uTbPzeZV7YBWXJIi9y5uiG6HPZBuOVIxTho7DE4rZm4crQwc2+9PNCw=="/>
         </item>
     </channel>
 </rss>
