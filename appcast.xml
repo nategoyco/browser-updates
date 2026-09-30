@@ -3,6 +3,21 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.8</title>
+            <pubDate>Wed, 30 Sep 2026 17:22:30 -0400</pubDate>
+            <sparkle:version>20</sparkle:version>
+            <sparkle:shortVersionString>1.1.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.8 — Snappier</h3>
+<ul>
+<li>Tabs you're not looking at now rest, like in Safari, so the tab you're on gets the whole machine — smoother scrolling, less battery. Switching back is still instant.</li>
+<li>Pages show up sooner: Pane now knows the moment a page first draws instead of checking for it.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.8/Pane-1.1.8.zip" length="3611098" type="application/octet-stream" sparkle:edSignature="DGCXsL0o5Jqr9pLwwICXGLc/ZpDKvS3jdLK0RAzpc9t2Is5BjSpUj5RfGYqoyRkVCG1lDr7TYknTeMw4Us48Dw=="/>
+        </item>
+        <item>
             <title>1.1.7</title>
             <pubDate>Tue, 29 Sep 2026 11:48:45 -0400</pubDate>
             <sparkle:version>19</sparkle:version>
@@ -15,7 +30,7 @@
 <li>A new app icon.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.7/Pane-1.1.7.zip" length="3605450" type="application/octet-stream" sparkle:edSignature="7A4ejHpiiZXHlT1k9mbml9oqbahNiU+uTbPzeZV7YBWXJIi9y5uiG6HPZBuOVIxTho7DE4rZm4crQwc2+9PNCw=="/>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.7/Pane-1.1.7.zip" length="3605450" type="application/octet-stream" sparkle:edSignature="7A4ejHpiiZXHlT1k9mbml9oqbahNiU+uTbPzeZV7YBWXJIi9y5uiG6HPZBuOVIxTho7DE4rZm4crQwc2+9PNCw=="/>
         </item>
         <item>
             <title>1.1.6</title>
@@ -30,22 +45,7 @@
 <li>Videos that sites stream in pieces (like YouTube) can't be saved as a file — Pane tells you instead of failing quietly.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.6/Pane-1.1.6.zip" length="3519177" type="application/octet-stream" sparkle:edSignature="zwS9UbJhA1gbJ6gMj3aFQhAYJKc1irOW/slRkIajQudnVc+mN/bL4vWL1C1ZPZC6TK0xOafwunhTBTovKe35Bg=="/>
-        </item>
-        <item>
-            <title>1.1.5</title>
-            <pubDate>Tue, 29 Sep 2026 11:08:37 -0400</pubDate>
-            <sparkle:version>17</sparkle:version>
-            <sparkle:shortVersionString>1.1.5</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.5</h3>
-<ul>
-<li>The "Playing" row only appears for sound you can actually hear — muted autoplay videos no longer count.</li>
-<li>Picture in picture only pops out a video you're watching with sound. Muted videos, previews and short clips stay put.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/browser-updates/releases/download/v1.1.5/Pane-1.1.5.zip" length="3505330" type="application/octet-stream" sparkle:edSignature="tcKjKg/v5sKdfqMndjMaKJ5rMW4DSkl8pwN5wEePqR1dIl0IXy14e0H15FICsua83dhzo39n4LQ4gQ9hafrrAQ=="/>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.6/Pane-1.1.6.zip" length="3519177" type="application/octet-stream" sparkle:edSignature="zwS9UbJhA1gbJ6gMj3aFQhAYJKc1irOW/slRkIajQudnVc+mN/bL4vWL1C1ZPZC6TK0xOafwunhTBTovKe35Bg=="/>
         </item>
     </channel>
 </rss>
