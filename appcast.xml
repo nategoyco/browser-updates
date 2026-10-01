@@ -3,6 +3,21 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.22</title>
+            <pubDate>Thu, 01 Oct 2026 12:29:28 -0400</pubDate>
+            <sparkle:version>34</sparkle:version>
+            <sparkle:shortVersionString>1.1.22</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.22 — Updates, the easy way</h3>
+<ul>
+<li><b>One-click updates.</b> From now on, a little note appears at the bottom left when there's a new Pane. Click it and Pane updates and reopens.</li>
+<li><b>What's new, right in Pane.</b> After every update, a page shows what changed. Find it anytime in Help › What's New in Pane.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.22/Pane-1.1.22.zip" length="7344444" type="application/octet-stream" sparkle:edSignature="Rtix7gyY+OCYs1mOeub/5OTnCYl4cQgYXZSQrutcvRsf1wA7JKz/mjx2x4plVg5n7R4hWyRqzw0CI+uYNpY9Aw=="/>
+        </item>
+        <item>
             <title>1.1.21</title>
             <pubDate>Thu, 01 Oct 2026 12:19:40 -0400</pubDate>
             <sparkle:version>33</sparkle:version>
@@ -33,20 +48,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.20/Pane-1.1.20.zip" length="4310885" type="application/octet-stream" sparkle:edSignature="P8SWeBjJhNzv3dv2g7X+p5pHxQTZ4MFmSKCVI9PwekjsmkWg9Fs/PHn7cE2qxYw2Id8/J+Ww6yz9C7ItLRVKCg=="/>
-        </item>
-        <item>
-            <title>1.1.19</title>
-            <pubDate>Wed, 30 Sep 2026 22:18:42 -0400</pubDate>
-            <sparkle:version>31</sparkle:version>
-            <sparkle:shortVersionString>1.1.19</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.19 — Readable on every card</h3>
-<ul>
-<li>Member cards now pick their text and pattern colors from what's behind them, so your name reads clearly on every design.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.19/Pane-1.1.19.zip" length="4286349" type="application/octet-stream" sparkle:edSignature="/YiFoqW+e707MTfsCX5Y7UIwuql3DUYfdW/eYbPDR0ZYuMOtPTcdjup1Iy80PJB7sTTXL4oHEjVn8qMLeLc2Dw=="/>
         </item>
     </channel>
 </rss>
