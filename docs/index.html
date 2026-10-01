@@ -154,6 +154,91 @@ kbd { font: 500 .82em var(--mono); background: var(--card); border: 1px solid va
 footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-block: 28px 40px; border-top: 1px solid var(--line);
   color: var(--ink-3); font-size: 13.5px; }
 footer a { text-decoration: none; } footer a:hover { color: var(--ink); }
+
+/* ───────── Motion ───────── */
+:root { --b1: #B9CDB4; --b2: #E7C3AE; --b3: #B7C9DD; --b4: #CFC3E6; --b5: #EBD9AE; --blob-o: .75; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --b1: #4F7449; --b2: #8A5A43; --b3: #42678C; --b4: #64549A; --b5: #7A6A3C; --blob-o: .7; } }
+:root[data-theme="dark"] { --b1: #4F7449; --b2: #8A5A43; --b3: #42678C; --b4: #64549A; --b5: #7A6A3C; --blob-o: .7; }
+
+/* Drifting color behind the hero and the ending, leaning toward the pointer. */
+.hero, .end { position: relative; isolation: isolate; }
+.aurora { position: absolute; z-index: -1; left: 50%; top: -120px; width: 100vw; height: calc(100% + 360px); transform: translateX(-50%);
+  overflow: hidden; pointer-events: none;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 62%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 62%, transparent); }
+.end .aurora { top: -40px; height: calc(100% + 80px); mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent); }
+.blob { position: absolute; width: 46vmax; height: 46vmax; border-radius: 50%; filter: blur(70px); opacity: var(--blob-o);
+  translate: calc(var(--mx, 0) * var(--pull, 40px)) calc(var(--my, 0) * var(--pull, 40px)); transition: translate 1.2s cubic-bezier(.2,.7,.2,1); }
+.blob span { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 50% 50%, var(--c) 0%, transparent 68%); animation: drift var(--t, 22s) ease-in-out infinite alternate; }
+.blob.a { --c: var(--b1); left: -8vmax; top: -6vmax; --t: 21s; --pull: 50px; }
+.blob.b { --c: var(--b2); right: -10vmax; top: 2vmax; --t: 26s; --pull: -40px; }
+.blob.c { --c: var(--b3); left: 30%; top: 20vmax; --t: 24s; --pull: 30px; }
+.blob.d { --c: var(--b4); right: 18%; top: 34vmax; --t: 29s; --pull: -55px; }
+@keyframes drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(6vmax, 4vmax) scale(1.12); }
+  66%  { transform: translate(-4vmax, 7vmax) scale(.92); }
+  100% { transform: translate(3vmax, -3vmax) scale(1.06); }
+}
+
+/* Headline words sharpen in one by one, like Ask's answers. */
+.word { display: inline-block; opacity: 0; filter: blur(10px); transform: translateY(.18em);
+  transition: opacity .9s ease, filter .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i) * 85ms); }
+.lit .word { opacity: 1; filter: blur(0); transform: none; }
+.hero h1 em { animation: tint 14s ease-in-out infinite; }
+@keyframes tint { 0%, 100% { color: var(--sage-ink); } 25% { color: var(--clay-ink); } 50% { color: var(--mist-ink); } 75% { color: #8B7FB0; } }
+
+/* Fade and rise into place on scroll. */
+.rv { opacity: 0; transform: translateY(26px); transition: opacity .9s ease, transform 1s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0ms); }
+.rv.in { opacity: 1; transform: none; }
+.desk.rv { transform: translateY(40px) scale(.97); }
+.desk.rv.in { transform: none; }
+.hero-row.rv, .get.rv { transition-delay: 450ms; }
+
+/* Panels behind screenshots: a slow, living gradient in their tint. */
+.desk { position: relative; overflow: hidden; isolation: isolate; }
+.desk::before { content: ""; position: absolute; inset: -40%; z-index: -1; opacity: .9;
+  background: radial-gradient(closest-side at 30% 30%, var(--g1), transparent), radial-gradient(closest-side at 70% 60%, var(--g2), transparent), radial-gradient(closest-side at 40% 80%, var(--g3), transparent);
+  animation: swirl 30s linear infinite; }
+.desk.sage { --g1: var(--b1); --g2: var(--b3); --g3: var(--b5); }
+.desk.clay { --g1: var(--b2); --g2: var(--b5); --g3: var(--b4); }
+.desk.mist { --g1: var(--b3); --g2: var(--b4); --g3: var(--b1); }
+.desk.sand { --g1: var(--b5); --g2: var(--b2); --g3: var(--b1); }
+@keyframes swirl { to { transform: rotate(1turn); } }
+.desk .shot { position: relative; transition: transform .6s cubic-bezier(.2,.7,.2,1), box-shadow .6s; }
+.desk:hover .shot { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(28,27,31,.08), 0 30px 70px -22px rgba(28,27,31,.45); }
+
+/* A slow ticker of what Pane does. */
+.ticker { margin-top: clamp(48px, 7vw, 84px); width: 100vw; margin-left: calc(50% - 50vw);
+  border-block: 1px solid var(--line); overflow: hidden; padding-block: 18px;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+.ticker .track { display: flex; width: max-content; animation: tick 60s linear infinite; }
+.ticker:hover .track { animation-play-state: paused; }
+.ticker ul { display: flex; gap: 46px; padding: 0 23px; margin: 0; list-style: none; }
+.ticker li { display: flex; align-items: center; gap: 12px; white-space: nowrap; font: 400 26px/1 var(--serif); color: var(--ink-2); }
+.ticker li i { width: 7px; height: 7px; border-radius: 50%; }
+@keyframes tick { to { transform: translateX(-50%); } }
+
+/* Keycaps press. */
+kbd { transition: transform .12s ease, border-bottom-width .12s ease, background .2s; display: inline-block; }
+.keys .row:hover kbd, kbd.press { transform: translateY(1px); border-bottom-width: 1px; background: var(--sage); }
+
+/* A shine across the download buttons. */
+.btn { position: relative; overflow: hidden; transition: transform .2s ease, opacity .2s; }
+.btn::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.35) 50%, transparent 65%);
+  transform: translateX(-120%); }
+.btn:hover { opacity: 1; transform: translateY(-1px); }
+.btn:hover::after { transform: translateX(120%); transition: transform .8s ease; }
+.hero .btn::after { animation: shine 6s ease-in-out 2.4s infinite; }
+@keyframes shine { 0%, 80% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
+
+/* Little dots beside section labels breathe. */
+.label i { animation: breathe 3.2s ease-in-out infinite; }
+@keyframes breathe { 50% { transform: scale(1.6); opacity: .6; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .word, .rv { opacity: 1 !important; filter: none !important; transform: none !important; }
+}
 </style>
 </head>
 <body>
@@ -169,6 +254,7 @@ footer a { text-decoration: none; } footer a:hover { color: var(--ink); }
   </nav>
 
   <header class="hero" id="top">
+    <div class="aurora" aria-hidden="true"><div class="blob a"><span></span></div><div class="blob b"><span></span></div><div class="blob c"><span></span></div><div class="blob d"><span></span></div></div>
     <h1>A quieter way to use <em>the web.</em></h1>
     <div class="hero-row">
       <p class="lede">Pane is a free Mac browser built on Safari's engine. Tabs look after themselves, articles read like articles, and the assistant runs on your Mac, not someone's server.</p>
@@ -186,6 +272,7 @@ footer a { text-decoration: none; } footer a:hover { color: var(--ink); }
     <img class="shot" src="img/hero.jpg" width="2800" height="1712" alt="Pane's window: a sage-tinted sidebar with favorite sites, a Design reading folder and five tabs, a Wikipedia article on espresso, and the Ask panel summarizing it.">
   </figure>
   <p class="note">An actual screenshot. That's Ask summarizing the page, <b>on the Mac itself.</b></p>
+  <div class="ticker" aria-hidden="true"><div class="track"><ul><li><i style="background:var(--sage-ink)"></i><kbd>⌘J</kbd>Ask the page</li><li><i style="background:var(--clay-ink)"></i><kbd>⇧⌘R</kbd>Reader view</li><li><i style="background:var(--mist-ink)"></i><kbd>⌃Tab</kbd>Recent tabs</li><li><i style="background:var(--sand-ink)"></i><kbd>⇧⌘1</kbd>Capture</li><li><i style="background:#8B7FB0"></i><kbd>⇧ click</kbd>Link preview</li><li><i style="background:var(--sage-ink)"></i><kbd>Touch ID</kbd>Passwords</li><li><i style="background:var(--clay-ink)"></i><kbd>Tidy</kbd>Folders that sort themselves</li><li><i style="background:var(--mist-ink)"></i><kbd>Glance</kbd>Links from other apps</li><li><i style="background:var(--sand-ink)"></i><kbd>No ads</kbd>Trackers blocked</li><li><i style="background:#8B7FB0"></i><kbd>Spaces</kbd>Their own colors and logins</li></ul><ul><li><i style="background:var(--sage-ink)"></i><kbd>⌘J</kbd>Ask the page</li><li><i style="background:var(--clay-ink)"></i><kbd>⇧⌘R</kbd>Reader view</li><li><i style="background:var(--mist-ink)"></i><kbd>⌃Tab</kbd>Recent tabs</li><li><i style="background:var(--sand-ink)"></i><kbd>⇧⌘1</kbd>Capture</li><li><i style="background:#8B7FB0"></i><kbd>⇧ click</kbd>Link preview</li><li><i style="background:var(--sage-ink)"></i><kbd>Touch ID</kbd>Passwords</li><li><i style="background:var(--clay-ink)"></i><kbd>Tidy</kbd>Folders that sort themselves</li><li><i style="background:var(--mist-ink)"></i><kbd>Glance</kbd>Links from other apps</li><li><i style="background:var(--sand-ink)"></i><kbd>No ads</kbd>Trackers blocked</li><li><i style="background:#8B7FB0"></i><kbd>Spaces</kbd>Their own colors and logins</li></ul></div></div>
 
   <!-- 01 Ask -->
   <section id="ask" class="split">
@@ -312,6 +399,7 @@ footer a { text-decoration: none; } footer a:hover { color: var(--ink); }
   </section>
 
   <section class="end">
+    <div class="aurora" aria-hidden="true"><div class="blob a"><span></span></div><div class="blob b"><span></span></div><div class="blob c"><span></span></div><div class="blob d"><span></span></div></div>
     <h2>Give it <em>an afternoon.</em></h2>
     <p class="copy">It takes a minute to set up, and it can bring over your bookmarks and history. If it isn't for you, dragging it to the Trash is all it takes.</p>
     <div class="get">
@@ -328,5 +416,73 @@ footer a { text-decoration: none; } footer a:hover { color: var(--ink); }
     <span><a href="https://github.com/nategoyco/pane-browser/releases">Releases</a> · <a href="https://github.com/nategoyco/pane-browser">GitHub</a></span>
   </footer>
 </div>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Headlines: split into words that sharpen in one at a time.
+  const splitWords = (el) => {
+    let i = 0;
+    const walk = (node) => {
+      [...node.childNodes].forEach((child) => {
+        if (child.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach((part) => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.append(part); return; }
+            const span = document.createElement('span');
+            span.className = 'word'; span.style.setProperty('--i', i++); span.textContent = part;
+            frag.append(span);
+          });
+          child.replaceWith(frag);
+        } else if (child.nodeType === 1) walk(child);
+      });
+    };
+    walk(el);
+  };
+  const headlines = [document.querySelector('.hero h1'), ...document.querySelectorAll('section h2')];
+  headlines.forEach(splitWords);
+
+  // Everything else fades and rises in, staggered within its group.
+  const groups = ['.hero-row', '.desk', '.note', '.ticker', 'section .label', 'section .copy', '.facts li', '.rest > div', '.keys dl', '.log > div', '.end .get'];
+  const items = [];
+  groups.forEach((sel) => document.querySelectorAll(sel).forEach((el) => {
+    const siblings = [...el.parentElement.children].filter((c) => c.matches(sel));
+    el.style.setProperty('--d', Math.min(siblings.indexOf(el), 8) * 70 + 'ms');
+    el.classList.add('rv'); items.push(el);
+  }));
+
+  if (reduce) { headlines.forEach((h) => h.classList.add('lit')); items.forEach((el) => el.classList.add('in')); return; }
+
+  const seen = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add(entry.target.matches('h1, h2') ? 'lit' : 'in');
+      if (entry.target.matches('.keys')) pressAll(entry.target);
+      seen.unobserve(entry.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+  [...headlines, ...items, document.querySelector('.keys')].forEach((el) => el && seen.observe(el));
+  requestAnimationFrame(() => document.querySelector('.hero h1').classList.add('lit'));
+
+  // Keycaps press in a ripple when the shortcuts appear.
+  function pressAll(root) {
+    root.querySelectorAll('kbd').forEach((k, i) => {
+      setTimeout(() => { k.classList.add('press'); setTimeout(() => k.classList.remove('press'), 180); }, 300 + i * 55);
+    });
+  }
+
+  // The color drifts toward the pointer.
+  let raf = 0;
+  addEventListener('pointermove', (e) => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = 0;
+      const x = e.clientX / innerWidth - 0.5, y = e.clientY / innerHeight - 0.5;
+      document.querySelectorAll('.aurora').forEach((a) => { a.style.setProperty('--mx', x.toFixed(3)); a.style.setProperty('--my', y.toFixed(3)); });
+    });
+  }, { passive: true });
+})();
+</script>
 </body>
 </html>
