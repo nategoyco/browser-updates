@@ -3,6 +3,22 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.18</title>
+            <pubDate>Wed, 30 Sep 2026 22:10:28 -0400</pubDate>
+            <sparkle:version>30</sparkle:version>
+            <sparkle:shortVersionString>1.1.18</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.18 — Your member card</h3>
+<ul>
+<li>Every Pane member now gets a card of their own: a one-of-a-kind pattern and colors, your name, when you joined and your member number.</li>
+<li>Make yours in Settings › Membership (new installs make it during the welcome) and watch it come to life. Hover over it and it tilts toward you.</li>
+<li>Make a new design any time, or save your card as an image to share.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.18/Pane-1.1.18.zip" length="4285063" type="application/octet-stream" sparkle:edSignature="NbHmMjFQjiMUXIlV+hEgje0O4E6SRepzDJpgMv1zULN2sikxhmwdG+5d5aVnJwEOkpHrNIdCz1T3Q1d4M6TJBw=="/>
+        </item>
+        <item>
             <title>1.1.17</title>
             <pubDate>Wed, 30 Sep 2026 22:02:22 -0400</pubDate>
             <sparkle:version>29</sparkle:version>
@@ -34,22 +50,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.16/Pane-1.1.16.zip" length="4072940" type="application/octet-stream" sparkle:edSignature="wgZpu5luZ7RwQ2mUjsIhkwtG/PKCs7ZGK2pD2p2718uR2rJ2u6O7yXWL6Eb938JJfbbEJXEBGu7lvCPlvAF+Cw=="/>
-        </item>
-        <item>
-            <title>1.1.15</title>
-            <pubDate>Wed, 30 Sep 2026 21:16:36 -0400</pubDate>
-            <sparkle:version>27</sparkle:version>
-            <sparkle:shortVersionString>1.1.15</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.15 — A new New Tab</h3>
-<ul>
-<li>⌘T now opens a New Tab page: one box to open a site, search the web, jump to a tab, or ask Pane anything. Your most-visited sites sit underneath.</li>
-<li>Asking turns the tab into a chat with Pane, right on the page, with follow-ups and a "Search the web" button under each answer. It runs on your Mac; nothing is sent anywhere.</li>
-<li>Questions are spotted as you type, so Return asks; ⌘Return always does.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.15/Pane-1.1.15.zip" length="4045862" type="application/octet-stream" sparkle:edSignature="OSupwPhB+ypB8RGC0sfQMok6hLL/EbXQSlxz8lZ/E4E5wf+MT+3hjCwY2KJRqWaRVqMifUmEc9RnGaZaKZLnCg=="/>
         </item>
     </channel>
 </rss>
