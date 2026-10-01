@@ -3,6 +3,20 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.14</title>
+            <pubDate>Wed, 30 Sep 2026 20:59:47 -0400</pubDate>
+            <sparkle:version>26</sparkle:version>
+            <sparkle:shortVersionString>1.1.14</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.14 — Sign in with Google</h3>
+<ul>
+<li>"Continue with Google", "Sign in with Apple" and other sign-in buttons now work: they open in a small window that hands your login back to the site and closes itself.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.14/Pane-1.1.14.zip" length="3927264" type="application/octet-stream" sparkle:edSignature="LhD/6JA3m1R+4fP4RyP636tlTC1JfpXN/ZJ7iMKLBLIz+4x4A0KWFS5Mzaj8DWhjOPAqaaeh5FEppP5Z06fCCw=="/>
+        </item>
+        <item>
             <title>1.1.13</title>
             <pubDate>Wed, 30 Sep 2026 20:37:56 -0400</pubDate>
             <sparkle:version>25</sparkle:version>
@@ -31,20 +45,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.12/Pane-1.1.12.zip" length="3909621" type="application/octet-stream" sparkle:edSignature="S3re9p3HK4AJYu2cFvUxf9duZCz+rnZaykSbjLNoeMcX5HetMNCbKQmwFyK/QTeUmS4+vOrwm0rrbYX6kxPhDA=="/>
-        </item>
-        <item>
-            <title>1.1.11</title>
-            <pubDate>Wed, 30 Sep 2026 18:31:05 -0400</pubDate>
-            <sparkle:version>23</sparkle:version>
-            <sparkle:shortVersionString>1.1.11</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.11 — Answers that flow</h3>
-<ul>
-<li>Ask's answers now flow in smoothly, word by word, each one fading and sharpening into place — and a gentle shimmer while it reads the page.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.11/Pane-1.1.11.zip" length="3907325" type="application/octet-stream" sparkle:edSignature="C3muz9lbhkADGiMr3Uk6aP7exLesUftWcTpAlJMcLFT4uIXGatIGYQufKalBe8nW0At4HR2Ca/Npsk2kKu2BCw=="/>
         </item>
     </channel>
 </rss>
