@@ -3,6 +3,23 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.17</title>
+            <pubDate>Wed, 30 Sep 2026 22:02:22 -0400</pubDate>
+            <sparkle:version>29</sparkle:version>
+            <sparkle:shortVersionString>1.1.17</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.17 — A real assistant</h3>
+<ul>
+<li>Pane now looks things up before it answers: it searches the web, reads the top pages (prices and dates included), and answers with sources you can click.</li>
+<li>Ask it to "pull up the page" and it opens the right one — the venue or official seller for tickets.</li>
+<li>Follow-up questions stay on topic.</li>
+<li>New: use OpenAI for smarter answers. Add your API key in Settings › Assistant (it's kept in your Keychain), or keep the free, private on-device model.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.17/Pane-1.1.17.zip" length="4193653" type="application/octet-stream" sparkle:edSignature="hEpZSfv4dcnft2PiLofANLEB45T8zhl18I2SrqSHMpmfiLRGsx7tWF/VCXXe3mCZfLAfgRIfo7rVdREFPEAvBw=="/>
+        </item>
+        <item>
             <title>1.1.16</title>
             <pubDate>Wed, 30 Sep 2026 21:35:37 -0400</pubDate>
             <sparkle:version>28</sparkle:version>
@@ -33,20 +50,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.15/Pane-1.1.15.zip" length="4045862" type="application/octet-stream" sparkle:edSignature="OSupwPhB+ypB8RGC0sfQMok6hLL/EbXQSlxz8lZ/E4E5wf+MT+3hjCwY2KJRqWaRVqMifUmEc9RnGaZaKZLnCg=="/>
-        </item>
-        <item>
-            <title>1.1.14</title>
-            <pubDate>Wed, 30 Sep 2026 20:59:47 -0400</pubDate>
-            <sparkle:version>26</sparkle:version>
-            <sparkle:shortVersionString>1.1.14</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.14 — Sign in with Google</h3>
-<ul>
-<li>"Continue with Google", "Sign in with Apple" and other sign-in buttons now work: they open in a small window that hands your login back to the site and closes itself.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.14/Pane-1.1.14.zip" length="3927264" type="application/octet-stream" sparkle:edSignature="LhD/6JA3m1R+4fP4RyP636tlTC1JfpXN/ZJ7iMKLBLIz+4x4A0KWFS5Mzaj8DWhjOPAqaaeh5FEppP5Z06fCCw=="/>
         </item>
     </channel>
 </rss>
