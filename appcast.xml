@@ -3,6 +3,22 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.16</title>
+            <pubDate>Wed, 30 Sep 2026 21:35:37 -0400</pubDate>
+            <sparkle:version>28</sparkle:version>
+            <sparkle:shortVersionString>1.1.16</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.16 — A little glow</h3>
+<ul>
+<li>The New Tab box glows with a soft rainbow edge while you type.</li>
+<li>While Pane is answering, the page's edge glows and gently pulses, and the box you asked from lights up.</li>
+<li>Small touches: the greeting sharpens in, site tiles pop in, sparkles pulse while Pane thinks, and tab icons lift when you hover them.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.16/Pane-1.1.16.zip" length="4072940" type="application/octet-stream" sparkle:edSignature="wgZpu5luZ7RwQ2mUjsIhkwtG/PKCs7ZGK2pD2p2718uR2rJ2u6O7yXWL6Eb938JJfbbEJXEBGu7lvCPlvAF+Cw=="/>
+        </item>
+        <item>
             <title>1.1.15</title>
             <pubDate>Wed, 30 Sep 2026 21:16:36 -0400</pubDate>
             <sparkle:version>27</sparkle:version>
@@ -31,21 +47,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.14/Pane-1.1.14.zip" length="3927264" type="application/octet-stream" sparkle:edSignature="LhD/6JA3m1R+4fP4RyP636tlTC1JfpXN/ZJ7iMKLBLIz+4x4A0KWFS5Mzaj8DWhjOPAqaaeh5FEppP5Z06fCCw=="/>
-        </item>
-        <item>
-            <title>1.1.13</title>
-            <pubDate>Wed, 30 Sep 2026 20:37:56 -0400</pubDate>
-            <sparkle:version>25</sparkle:version>
-            <sparkle:shortVersionString>1.1.13</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.13 — Tidier reading</h3>
-<ul>
-<li>Reader view now leaves out Wikipedia's info tables, notes and [1]-style citation marks, so it's just the article.</li>
-<li>The recent-tabs switcher (⌃Tab) fades softly at its ends when you have more tabs than fit.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.13/Pane-1.1.13.zip" length="3912469" type="application/octet-stream" sparkle:edSignature="84WQVEzP0nQAQvvrV+dp/JiTngLRQZNCPiSzwdLxN5rMpBJXKwVWkumLmjpqOYPo53lTSDE991i9Mmg0Tkm7CQ=="/>
         </item>
     </channel>
 </rss>
