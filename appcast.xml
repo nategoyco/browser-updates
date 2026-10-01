@@ -3,6 +3,20 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.19</title>
+            <pubDate>Wed, 30 Sep 2026 22:18:42 -0400</pubDate>
+            <sparkle:version>31</sparkle:version>
+            <sparkle:shortVersionString>1.1.19</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.19 — Readable on every card</h3>
+<ul>
+<li>Member cards now pick their text and pattern colors from what's behind them, so your name reads clearly on every design.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.19/Pane-1.1.19.zip" length="4286349" type="application/octet-stream" sparkle:edSignature="/YiFoqW+e707MTfsCX5Y7UIwuql3DUYfdW/eYbPDR0ZYuMOtPTcdjup1Iy80PJB7sTTXL4oHEjVn8qMLeLc2Dw=="/>
+        </item>
+        <item>
             <title>1.1.18</title>
             <pubDate>Wed, 30 Sep 2026 22:10:28 -0400</pubDate>
             <sparkle:version>30</sparkle:version>
@@ -34,22 +48,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.17/Pane-1.1.17.zip" length="4193653" type="application/octet-stream" sparkle:edSignature="hEpZSfv4dcnft2PiLofANLEB45T8zhl18I2SrqSHMpmfiLRGsx7tWF/VCXXe3mCZfLAfgRIfo7rVdREFPEAvBw=="/>
-        </item>
-        <item>
-            <title>1.1.16</title>
-            <pubDate>Wed, 30 Sep 2026 21:35:37 -0400</pubDate>
-            <sparkle:version>28</sparkle:version>
-            <sparkle:shortVersionString>1.1.16</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.16 — A little glow</h3>
-<ul>
-<li>The New Tab box glows with a soft rainbow edge while you type.</li>
-<li>While Pane is answering, the page's edge glows and gently pulses, and the box you asked from lights up.</li>
-<li>Small touches: the greeting sharpens in, site tiles pop in, sparkles pulse while Pane thinks, and tab icons lift when you hover them.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.16/Pane-1.1.16.zip" length="4072940" type="application/octet-stream" sparkle:edSignature="wgZpu5luZ7RwQ2mUjsIhkwtG/PKCs7ZGK2pD2p2718uR2rJ2u6O7yXWL6Eb938JJfbbEJXEBGu7lvCPlvAF+Cw=="/>
         </item>
     </channel>
 </rss>
