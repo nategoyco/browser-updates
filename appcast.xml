@@ -3,6 +3,24 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.20</title>
+            <pubDate>Thu, 01 Oct 2026 01:49:33 -0400</pubDate>
+            <sparkle:version>32</sparkle:version>
+            <sparkle:shortVersionString>1.1.20</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.20 — Privacy &amp; Safety</h3>
+<ul>
+<li><b>Private windows</b> (⇧⌘N): no history, nothing saved, and every cookie and sign-in is forgotten when you close the window.</li>
+<li><b>Tracking tags removed from links.</b> utm_, fbclid, gclid and friends come off when you click or copy a link.</li>
+<li><b>A safer assistant.</b> Pages and search results are read as information, never as instructions, answers have no hidden links, and research happens in a signed-out session.</li>
+<li>OpenAI conversations are marked not to be stored.</li>
+<li>Settings › Privacy &amp; Safety shows every protection at a glance.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.20/Pane-1.1.20.zip" length="4310885" type="application/octet-stream" sparkle:edSignature="P8SWeBjJhNzv3dv2g7X+p5pHxQTZ4MFmSKCVI9PwekjsmkWg9Fs/PHn7cE2qxYw2Id8/J+Ww6yz9C7ItLRVKCg=="/>
+        </item>
+        <item>
             <title>1.1.19</title>
             <pubDate>Wed, 30 Sep 2026 22:18:42 -0400</pubDate>
             <sparkle:version>31</sparkle:version>
@@ -31,23 +49,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.18/Pane-1.1.18.zip" length="4285063" type="application/octet-stream" sparkle:edSignature="NbHmMjFQjiMUXIlV+hEgje0O4E6SRepzDJpgMv1zULN2sikxhmwdG+5d5aVnJwEOkpHrNIdCz1T3Q1d4M6TJBw=="/>
-        </item>
-        <item>
-            <title>1.1.17</title>
-            <pubDate>Wed, 30 Sep 2026 22:02:22 -0400</pubDate>
-            <sparkle:version>29</sparkle:version>
-            <sparkle:shortVersionString>1.1.17</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.17 — A real assistant</h3>
-<ul>
-<li>Pane now looks things up before it answers: it searches the web, reads the top pages (prices and dates included), and answers with sources you can click.</li>
-<li>Ask it to "pull up the page" and it opens the right one — the venue or official seller for tickets.</li>
-<li>Follow-up questions stay on topic.</li>
-<li>New: use OpenAI for smarter answers. Add your API key in Settings › Assistant (it's kept in your Keychain), or keep the free, private on-device model.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.17/Pane-1.1.17.zip" length="4193653" type="application/octet-stream" sparkle:edSignature="hEpZSfv4dcnft2PiLofANLEB45T8zhl18I2SrqSHMpmfiLRGsx7tWF/VCXXe3mCZfLAfgRIfo7rVdREFPEAvBw=="/>
         </item>
     </channel>
 </rss>
