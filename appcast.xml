@@ -3,6 +3,21 @@
     <channel>
         <title>Pane</title>
         <item>
+            <title>1.1.13</title>
+            <pubDate>Wed, 30 Sep 2026 20:37:56 -0400</pubDate>
+            <sparkle:version>25</sparkle:version>
+            <sparkle:shortVersionString>1.1.13</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description><![CDATA[<h3>1.1.13 — Tidier reading</h3>
+<ul>
+<li>Reader view now leaves out Wikipedia's info tables, notes and [1]-style citation marks, so it's just the article.</li>
+<li>The recent-tabs switcher (⌃Tab) fades softly at its ends when you have more tabs than fit.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.13/Pane-1.1.13.zip" length="3912469" type="application/octet-stream" sparkle:edSignature="84WQVEzP0nQAQvvrV+dp/JiTngLRQZNCPiSzwdLxN5rMpBJXKwVWkumLmjpqOYPo53lTSDE991i9Mmg0Tkm7CQ=="/>
+        </item>
+        <item>
             <title>1.1.12</title>
             <pubDate>Wed, 30 Sep 2026 18:40:21 -0400</pubDate>
             <sparkle:version>24</sparkle:version>
@@ -30,24 +45,6 @@
 </ul>
 ]]></description>
             <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.11/Pane-1.1.11.zip" length="3907325" type="application/octet-stream" sparkle:edSignature="C3muz9lbhkADGiMr3Uk6aP7exLesUftWcTpAlJMcLFT4uIXGatIGYQufKalBe8nW0At4HR2Ca/Npsk2kKu2BCw=="/>
-        </item>
-        <item>
-            <title>1.1.10</title>
-            <pubDate>Wed, 30 Sep 2026 18:23:47 -0400</pubDate>
-            <sparkle:version>22</sparkle:version>
-            <sparkle:shortVersionString>1.1.10</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <description><![CDATA[<h3>1.1.10 — Ask, Reader, Capture, and more</h3>
-<ul>
-<li><b>Ask this page</b> (⌘J): summarize a page or ask about it in a panel beside it. Runs on Apple's on-device model — free, and nothing leaves your Mac.</li>
-<li><b>Reader view</b> (⇧⌘R): just the article, cleanly set, without the clutter.</li>
-<li><b>Capture</b> (⇧⌘1): drag a box over any page to copy that part as an image.</li>
-<li><b>Link preview</b>: ⇧-click a link to peek at it over the page, then close it or keep it as a tab.</li>
-<li><b>Recent tabs</b> (⌃Tab): hold Control and tap Tab to flip between your most recent tabs, with previews. Next and previous tab are now ⇧⌘] and ⇧⌘[.</li>
-</ul>
-]]></description>
-            <enclosure url="https://github.com/nategoyco/pane-browser/releases/download/v1.1.10/Pane-1.1.10.zip" length="3885398" type="application/octet-stream" sparkle:edSignature="/raxu4nnZwLr6mzIEs6aXyDRvzeUol0nFfGY9yDI4tevDMQj79ThnBpXij2LzG03M0RAYjsjL+1LvJ5hInCwAQ=="/>
         </item>
     </channel>
 </rss>
